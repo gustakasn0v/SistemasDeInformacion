@@ -18,9 +18,9 @@ public class LoginAction extends ActionSupport {
 	private String password;
 	
 	/**
-	 * Método: authinticate
-	 * Descripción: Obtiene al información de la base de datos para
-	 * determinar si el usuario está autenticado
+	 * Mï¿½todo: authenticate
+	 * Descripciï¿½n: Obtiene al informaciï¿½n de la base de datos para
+	 * determinar si el usuario estï¿½ autenticado
 	 * @throws IllegalAccessException 
 	 * @throws InstantiationException 
 	 * 
@@ -39,7 +39,7 @@ public class LoginAction extends ActionSupport {
 	
 	/**
 	 * Obtiene el nombre de usuario de la instancia.
-	 * Este método siempre retorna.
+	 * Este mï¿½todo siempre retorna.
 	 * 
 	 * @return	Nombre de usuario
 	 */
@@ -49,7 +49,7 @@ public class LoginAction extends ActionSupport {
 	
 	/**
 	 * Obtiene la clave de la instancia.
-	 * Este método siempre retorna.
+	 * Este mï¿½todo siempre retorna.
 	 * 
 	 * @return	Clave
 	 */
@@ -59,7 +59,7 @@ public class LoginAction extends ActionSupport {
 	
 	/**
 	 * Setea el nombre de usuario de la instancia.
-	 * Este método siempre retorna.
+	 * Este mï¿½todo siempre retorna.
 	 * @param	usuario		Nombre de usuario
 	 */
 	public void setUsername(String user){
@@ -67,7 +67,7 @@ public class LoginAction extends ActionSupport {
 	}
 	/**
 	 * Setea la clave de la instancia.
-	 * Este método siempre retorna.
+	 * Este mï¿½todo siempre retorna.
 	 * @param Clave
 	 */
 	public void setPassword(String pass){
