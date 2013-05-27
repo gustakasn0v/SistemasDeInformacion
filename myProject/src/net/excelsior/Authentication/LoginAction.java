@@ -11,12 +11,23 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class LoginAction extends ActionSupport {
 	
+	private final AuthDatabase data = new AuthDatabase(
+			);
 	private static final long serialVersionUID = 1L;
 	private String username;
 	private String password;
 	
+	/**
+	 * Método: authinticate
+	 * Descripción: Obtiene al información de la base de datos para
+	 * determinar si el usuario está autenticado
+	 * @throws IllegalAccessException 
+	 * @throws InstantiationException 
+	 * 
+	 */
+	
 	public String authenticate() throws InstantiationException, IllegalAccessException{
-		if (DatabaseLookups.checkPassword(this.username,this.password)){
+		if (this.data.checkPassword(this.username,this.password)){
 			return "success";
 		}
 		else{
@@ -62,13 +73,4 @@ public class LoginAction extends ActionSupport {
 	public void setPassword(String pass){
 		this.password = pass;
 	}
-	
-	/**
-	 * Método: autentica
-	 * Descripción: Obtiene al información de la base de datos para
-	 * determinar si el usuario está autenticado
-	 * @throws IllegalAccessException 
-	 * @throws InstantiationException 
-	 * 
-	 */
 }

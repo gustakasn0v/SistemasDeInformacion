@@ -2,6 +2,7 @@
  * 
  */
 package net.excelsior.Authentication;
+import com.opensymphony.xwork2.ActionSupport;
 import java.sql.*;
 
 import net.excelsior.Authentication.Database;
@@ -10,8 +11,14 @@ import net.excelsior.Authentication.Database;
  * @author gustavo
  *
  */
-public class DatabaseLookups {
+public class AuthDatabase extends ActionSupport {
 	
+	private static final long serialVersionUID = 1L;
+	
+	private final Database db = new Database(
+			getText("database.jdbcToken")+getText("database.dbname"),
+			getText("database.login"),
+			getText("database.password"));
 	
 	/**
 	 * Determina si un usuario existe en la base de datos
@@ -21,18 +28,14 @@ public class DatabaseLookups {
 	 * @return			Booleano que indica si el usuario existe
 	 *
 	 */
-	public static boolean userExists(String user) {
-		Database db = new Database(
-				"jdbc:postgresql://192.168.1.3/sistemas",
-				"sys",
-				"123");
+	public boolean userExists(String user) {
 		
-		if (!db.initializeConnection()) return false;
+		if (!this.db.initializeConnection()) return false;
 		String sqlquery = "select * from users where username = '" + user + "';";
-		ResultSet rs = db.executeCommand(sqlquery);
+		ResultSet rs = this.db.executeCommand(sqlquery);
 		
 		try{
-			db.closeConnection();
+			this.db.closeConnection();
 			return rs.next();
 		}
 		catch(SQLException e){
@@ -49,19 +52,15 @@ public class DatabaseLookups {
 	 * @return String que representa la clave del usuario
 	 *  
 	 */
-	private static String lookForPassword(String user){
+	private String lookForPassword(String user){
 		if (!userExists(user)) return null;
-		Database db = new Database(
-				"jdbc:postgresql://192.168.1.3/sistemas",
-				"sys",
-				"123");
-		
-		if (!db.initializeConnection()) return null;
+				
+		if (!this.db.initializeConnection()) return null;
 		String sqlquery = "select password from users where username = '" + user + "';";
-		ResultSet rs = db.executeCommand(sqlquery);
+		ResultSet rs = this.db.executeCommand(sqlquery);
 		
 		try{
-			db.closeConnection();
+			this.db.closeConnection();
 			rs.next();
 			return rs.getString("password");
 		}
@@ -83,8 +82,8 @@ public class DatabaseLookups {
 	 * @throws InstantiationException 
 	 */
 	
-	public static boolean checkPassword(String user,String password) throws InstantiationException, IllegalAccessException{
-		if (!userExists(user)) return false;
+	public  boolean checkPassword(String user,String password) throws InstantiationException, IllegalAccessException{
+		if (!this.userExists(user)) return false;
 		String hash = lookForPassword(user);
 		return hash.equals(password);
 	}
