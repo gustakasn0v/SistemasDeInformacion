@@ -31,7 +31,7 @@ public class AuthDatabase extends ActionSupport {
 	public boolean userExists(String user) {
 		
 		if (!this.db.initializeConnection()) return false;
-		String sqlquery = "select * from users where username = '" + user + "';";
+		String sqlquery = "select * from usuario where nombre_usuario= '" + user + "';";
 		ResultSet rs = this.db.executeCommand(sqlquery);
 		
 		try{
@@ -56,13 +56,14 @@ public class AuthDatabase extends ActionSupport {
 		if (!userExists(user)) return null;
 				
 		if (!this.db.initializeConnection()) return null;
-		String sqlquery = "select password from users where username = '" + user + "';";
+		String sqlquery = "select contrasenia from usuario where nombre_usuario = '" + user + "';";
+		System.out.println(sqlquery);
 		ResultSet rs = this.db.executeCommand(sqlquery);
 		
 		try{
 			this.db.closeConnection();
 			rs.next();
-			return rs.getString("password");
+			return rs.getString("contrasenia");
 		}
 		catch(SQLException e){
 			System.out.println("Error leyendo resultado del query");

@@ -50,10 +50,27 @@ public class Database {
 			return state.executeQuery(command);
 		}
 		catch(SQLException e){
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 			return null;
 		}
 	}
+	
+    /**
+     * Ejecuta un insert en la base de datos
+     * @param command 
+     */
+    
+    public void executeInsert(String command){
+        try{
+            Statement state= this.connectionToken.createStatement();
+            state.executeUpdate(command);
+            
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+
 	
 	
 	/**

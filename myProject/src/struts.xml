@@ -17,4 +17,12 @@
             <result name="error">Login.jsp</result>
         </action>
     </package>
+    
+    <package name="mypack" extends="struts-default" namespace="/">
+    	<action name="agregarTitulos" method="execute"
+            class="net.excelsior.InformacionProfesor.InsertInfoProfesor">
+            <result name="success">Welcome.jsp</result>
+            <result name="error">Welcome.jsp</result>
+        </action>
+    </package>
 </struts>
