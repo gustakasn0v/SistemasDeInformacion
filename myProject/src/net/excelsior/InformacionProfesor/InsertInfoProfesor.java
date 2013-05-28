@@ -41,9 +41,25 @@ public class InsertInfoProfesor extends ActionSupport{
      public String getTitulo1(){
     	 return this.titulo1;
      }
+     
+     public void setTitulo2(String tit2){
+    	 this.titulo2 = tit2;
+     }
+     
+     public String getTitulo2(){
+    	 return this.titulo2;
+     }  
+     
+     public void setTitulo3(String tit3){
+    	 this.titulo3 = tit3;
+     }
+     
+     public String getTitulo3(){
+    	 return this.titulo3;
+     }  
+     
      /* Falta verificar un monton de cosas y hacerlo mas ordenado con una 
-        clase profesor! El nombre ingresado, por ahora, debe ser el nombre 
-        de usuario*/
+        clase profesor! */
      
      public String execute(){
     	 
@@ -51,7 +67,6 @@ public class InsertInfoProfesor extends ActionSupport{
          
          String query = "select nombre_usuario from usuario where " +
                         "cedula = " + this.cedulaProf + ";";
-         System.out.println(query);
          ResultSet rs = dBase.executeCommand(query);
          String nombreUsuario = null;
          
@@ -67,16 +82,32 @@ public class InsertInfoProfesor extends ActionSupport{
              return "error";
          }
          
-         String insert = "insert into formacion values ('" + titulo1 +
-                 "', '" + nombreUsuario + "');";
-         this.dBase.executeInsert(insert);
-         this.dBase.closeConnection();
+         
+         if (!titulo1.equals("")){
+	         String insert = "insert into formacion values ('" + titulo1 +
+	                 "', '" + nombreUsuario + "');";
+	         this.dBase.executeInsert(insert);
+         }
+         
+         if (!titulo2.equals("")){
+	         String insert = "insert into formacion values ('" + titulo2 +
+	                 "', '" + nombreUsuario + "');";
+	         this.dBase.executeInsert(insert);
+         }
+         
+         if (!titulo3.equals("")){
+	         String insert = "insert into formacion values ('" + titulo3 +
+	                 "', '" + nombreUsuario + "');";
+	         this.dBase.executeInsert(insert);
+         }
+         
          addActionError(getText("valid.profInfoInserted"));
          this.nombreProf = null;
          this.cedulaProf = null;
          this.titulo1= null;
          this.titulo2= null;
          this.titulo3= null;
+         this.dBase.closeConnection();
          return "success";
  
      }
