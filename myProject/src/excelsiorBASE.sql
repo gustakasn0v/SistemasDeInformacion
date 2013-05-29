@@ -1,3 +1,6 @@
+-- Script de inicialización de la base de datos
+-- Sistema de Evaluación de Profesores
+
 CREATE TABLE USUARIO (
 	nombre_usuario varchar (50) NOT NULL,
 	contrasenia varchar (20) NOT NULL,
