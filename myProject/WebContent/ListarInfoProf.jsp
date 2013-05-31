@@ -45,13 +45,37 @@
 	    <s:submit method="execute" key="label.actualizar" align="center" />
 	</s:form>
 	
-	<h3>Material de apoyo</h3>
-
+	<h3>Material de Apoyo</h3>
 	<ul>
 		<s:iterator value="materialApoyo">	
 			<li><s:property/></li>
 		</s:iterator>
 	</ul>
+	
+	<s:actionerror />
+	<s:form action="insertarMaterialAction" method="execute">
+	    <s:textfield name="nombreProf" key="label.nombreProf" size="50" />
+	    <s:textfield name="cedulaProf" key="label.cedulaProf" size="50" />
+	    <s:textfield name="material1" key="label.material" size="50" />
+	    <s:submit method="execute" key="label.insertProfInfo" align="center" />
+	</s:form>
+	
+	<s:actionerror />
+	<s:form action="eliminarMaterialAction" method="execute">
+	    <s:textfield name="nombreProf" key="label.nombreProf" size="50" />
+	    <s:textfield name="cedulaProf" key="label.cedulaProf" size="50" />
+	    <s:textfield name="material1" key="label.material" size="50" />
+	    <s:submit method="execute" key="label.delete" align="center" />
+	</s:form>
+	
+    <s:actionerror />
+	<s:form action="actualizarMaterialAction" method="execute">
+	    <s:textfield name="nombreProf" key="label.nombreProf" size="50" />
+	    <s:textfield name="cedulaProf" key="label.cedulaProf" size="50" />
+	    <s:textfield name="material1" key="label.material" size="50" />
+	    <s:textfield name="material2" key="label.newMaterial" size="50" />
+	    <s:submit method="execute" key="label.actualizar" align="center" />
+	</s:form>
 	
 	<h6>Eliminar o modificar un material de apoyo:</h6>
 	

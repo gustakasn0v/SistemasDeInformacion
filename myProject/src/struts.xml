@@ -13,13 +13,13 @@
     <package name="default" extends="struts-default" namespace="/">
         <action name="login" method="authenticate"
             class="net.excelsior.Authentication.LoginAction">
-            <result name="successProfessor">Welcome.jsp</result>
+            <result name="successProfessor">WelcomeAgregar.jsp</result>
             <result name="successDpto">WelcomeDpto.jsp</result>
             <result name="error">Login.jsp</result>
         </action>
     </package>
     
-    <package name="mypack" extends="struts-default" namespace="/">
+    <package name="titles" extends="struts-default" namespace="/">
     	<action name="mostrarInfoProfAction" method="execute"
             class="net.excelsior.InformacionProfesor.ShowInfoAction">
             <result name="success">ListarInfoProf.jsp</result>
@@ -37,6 +37,24 @@
         </action>
         <action name="actualizarTituloAction" method="execute"
             class="net.excelsior.InformacionProfesor.UpdateInfoProfesor">
+            <result name="success">WelcomeAgregar.jsp</result>
+            <result name="error">WelcomeAgregar.jsp</result>
+        </action>
+    </package>
+    
+    <package name="resources" extends="struts-default" namespace="/">
+        <action name="insertarMaterialAction" method="execute"
+            class="net.excelsior.InformacionProfesor.InsertMaterialProfesor">
+            <result name="success">WelcomeAgregar.jsp</result>
+            <result name="error">WelcomeAgregar.jsp</result>
+        </action>
+        <action name="eliminarMaterialAction" method="execute"
+            class="net.excelsior.InformacionProfesor.DeleteMaterialProfesor">
+            <result name="success">WelcomeAgregar.jsp</result>
+            <result name="error">WelcomeAgregar.jsp</result>
+        </action>
+        <action name="actualizarTituloAction" method="execute"
+            class="net.excelsior.InformacionProfesor.UpdateMaterialProfesor">
             <result name="success">WelcomeAgregar.jsp</result>
             <result name="error">WelcomeAgregar.jsp</result>
         </action>

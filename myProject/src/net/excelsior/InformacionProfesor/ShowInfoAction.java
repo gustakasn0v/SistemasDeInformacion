@@ -64,10 +64,9 @@ public class ShowInfoAction extends ActionSupport{
         		"U.cedula = " + cedula + " and M.nombre_usuario = U.nombre_usuario;";
         
         ResultSet resultTitulos = dBase.executeCommand(queryTitulos);
+        ResultSet resultMaterial = dBase.executeCommand(queryMaterial);
         titulos = new ArrayList<String>();
         materialApoyo = new ArrayList<String>();
-        
-        ResultSet resultMaterial = dBase.executeCommand(queryMaterial);
         
         try{
         	while(resultTitulos.next()){
