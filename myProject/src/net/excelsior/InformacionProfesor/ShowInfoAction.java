@@ -16,6 +16,7 @@ public class ShowInfoAction extends ActionSupport{
 	private long cedula;
 	private String professorUsername; //Tentativamente esto lo voy a usar como nombre del profesor
 	private List<String> materialApoyo;
+	private List<String> programas; 
 	private final Database dBase = new Database(
             getText("database.jdbcToken")+getText("database.dbname"),
 			getText("database.login"),
@@ -33,6 +34,14 @@ public class ShowInfoAction extends ActionSupport{
 	public List<String> getMaterialApoyo(){
 		return titulos;
 	}
+
+	public void setProgramas(List<String> misTitulos){
+		programas = misTitulos;
+	}
+
+	public List<String> getProgramasApoyo(){
+		return programas;
+	}	
 	
 	public void setMaterialApoyo(List<String> misMateriales){
 		titulos = misMateriales;
@@ -63,7 +72,11 @@ public class ShowInfoAction extends ActionSupport{
         String queryMaterial = "select material from material_apoyo M, usuario U where " +
         		"U.cedula = " + cedula + " and M.nombre_usuario = U.nombre_usuario;";
         
+        String queryPrograma = "select programa from programa M, usuario U where " +
+        		"U.cedula = " + cedula + " and M.nombre_usuario = U.nombre_usuario;";
+        
         ResultSet resultTitulos = dBase.executeCommand(queryTitulos);
+        ResultSet resultProgramas = dBase.executeCommand(queryPrograma);
         ResultSet resultMaterial = dBase.executeCommand(queryMaterial);
         titulos = new ArrayList<String>();
         materialApoyo = new ArrayList<String>();
@@ -78,6 +91,10 @@ public class ShowInfoAction extends ActionSupport{
                 System.out.println(resultMaterial.getString("material"));
             }	
         
+        	while(resultProgramas.next()){
+                materialApoyo.add(resultMaterial.getString("programa"));
+            }	
+        	
         } catch (SQLException e){
             
             System.out.println("El profesor no esta registrado en el sistema.");
