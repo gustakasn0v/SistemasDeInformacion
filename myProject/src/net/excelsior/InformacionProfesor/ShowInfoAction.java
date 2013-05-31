@@ -81,15 +81,15 @@ public class ShowInfoAction extends ActionSupport implements SessionAware{
         String queryMaterial = "select material from material_apoyo M, usuario U where " +
         		"U.cedula = " + cedula + " and M.nombre_usuario = U.nombre_usuario;";
         
-        String queryPrograma = "select programa from programa M, usuario U where " +
-        		"U.cedula = " + cedula + " and M.nombre_usuario = U.nombre_usuario;";
+        String queryPrograma = "select programa from programa P, usuario U where " +
+        		"U.cedula = " + cedula + " and P.nombre_usuario = U.nombre_usuario;";
         
         ResultSet resultTitulos = dBase.executeCommand(queryTitulos);
         ResultSet resultProgramas = dBase.executeCommand(queryPrograma);
         ResultSet resultMaterial = dBase.executeCommand(queryMaterial);
         titulos = new ArrayList<String>();
         materialApoyo = new ArrayList<String>();
-        
+        programas = new ArrayList<String>();
         try{
         	while(resultTitulos.next()){
         		titulos.add(resultTitulos.getString("formacion"));
@@ -97,10 +97,12 @@ public class ShowInfoAction extends ActionSupport implements SessionAware{
         	
         	while(resultMaterial.next()){
                 materialApoyo.add(resultMaterial.getString("material"));
+                System.out.println(resultMaterial.getString("material"));
             }	
         
         	while(resultProgramas.next()){
-                materialApoyo.add(resultMaterial.getString("programa"));
+                programas.add(resultProgramas.getString("programa"));
+                System.out.println("dfgdfg");
             }	
         	
         } catch (SQLException e){

@@ -23,7 +23,7 @@
     	<action name="mostrarInfoProfAction" method="execute"
             class="net.excelsior.InformacionProfesor.ShowInfoAction">
             <result name="success">ListarInfoProf.jsp</result>
-            <result name="error">Welcome.jsp</result>
+            <result name="error">WelcomeAgregar.jsp</result>
         </action>
         <action name="insertarTituloAction" method="execute"
             class="net.excelsior.InformacionProfesor.InsertInfoProfesor">
@@ -55,6 +55,21 @@
         </action>
         <action name="actualizarTituloAction" method="execute"
             class="net.excelsior.InformacionProfesor.UpdateMaterialProfesor">
+            <result name="success">WelcomeAgregar.jsp</result>
+            <result name="error">WelcomeAgregar.jsp</result>
+        </action>
+        <action name="insertarProgramaAction" method="execute"
+            class="net.excelsior.InformacionProfesor.InsertProgramaProfesor">
+            <result name="success">WelcomeAgregar.jsp</result>
+            <result name="error">WelcomeAgregar.jsp</result>
+        </action>
+        <action name="eliminarProgramaAction" method="execute"
+            class="net.excelsior.InformacionProfesor.DeleteProgramaProfesor">
+            <result name="success">WelcomeAgregar.jsp</result>
+            <result name="error">WelcomeAgregar.jsp</result>
+        </action>
+        <action name="actualizarProgramaAction" method="execute"
+            class="net.excelsior.InformacionProfesor.UpdateProgramaProfesor">
             <result name="success">WelcomeAgregar.jsp</result>
             <result name="error">WelcomeAgregar.jsp</result>
         </action>

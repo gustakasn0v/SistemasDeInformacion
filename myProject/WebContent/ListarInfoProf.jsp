@@ -48,11 +48,13 @@
 		<li><s:property/></li>
 	</s:iterator>
 	
+	<h6>Eliminar o modificar un material de apoyo:</h6>
+	
 	<s:actionerror />
 	<s:form action="insertarMaterialAction" method="execute">
 	    <s:textfield name="nombreProf" key="label.nombreProf" size="50" />
 	    <s:hidden name="cedulaProf" value="%{#session.cedula}" />
-	    <s:textfield name="material1" key="label.material" size="50" />
+	    <s:textfield name="material1" key="label.programa" size="50" />
 	    <s:submit method="execute" key="label.insertProfInfo" align="center" />
 	</s:form>
 	
@@ -60,7 +62,7 @@
 	<s:form action="eliminarMaterialAction" method="execute">
 	    <s:textfield name="nombreProf" key="label.nombreProf" size="50" />
 	    <s:hidden name="cedulaProf" value="%{#session.cedula}" />
-	    <s:textfield name="material1" key="label.material" size="50" />
+	    <s:textfield name="material1" key="label.programa" size="50" />
 	    <s:submit method="execute" key="label.delete" align="center" />
 	</s:form>
 	
@@ -68,12 +70,42 @@
 	<s:form action="actualizarMaterialAction" method="execute">
 	    <s:textfield name="nombreProf" key="label.nombreProf" size="50" />
 	    <s:hidden name="cedulaProf" value="%{#session.cedula}" />
-	    <s:textfield name="material1" key="label.material" size="50" />
-	    <s:textfield name="material2" key="label.newMaterial" size="50" />
+	    <s:textfield name="material1" key="label.programa" size="50" />
+	    <s:textfield name="material2" key="label.newPrograma" size="50" />
 	    <s:submit method="execute" key="label.actualizar" align="center" />
 	</s:form>
 	
-	<h6>Eliminar o modificar un material de apoyo:</h6>
+	
+	
+	<h3>Programas modificados:</h3>
+	<s:iterator value="programas">	
+		<li><s:property/></li>
+	</s:iterator>
+
+	<s:actionerror />
+	<s:form action="insertarProgramaAction" method="execute">
+	    <s:textfield name="nombreProf" key="label.nombreProf" size="50" />
+	    <s:hidden name="cedulaProf" value="%{#session.cedula}" />
+	    <s:textfield name="programa1" key="label.material" size="50" />
+	    <s:submit method="execute" key="label.insertProfInfo" align="center" />
+	</s:form>
+	
+	<s:actionerror />
+	<s:form action="eliminarProgramaAction" method="execute">
+	    <s:textfield name="nombreProf" key="label.nombreProf" size="50" />
+	    <s:hidden name="cedulaProf" value="%{#session.cedula}" />
+	    <s:textfield name="programa1" key="label.material" size="50" />
+	    <s:submit method="execute" key="label.delete" align="center" />
+	</s:form>
+	
+    <s:actionerror />
+	<s:form action="actualizarProgramaAction" method="execute">
+	    <s:textfield name="nombreProf" key="label.nombreProf" size="50" />
+	    <s:hidden name="cedulaProf" value="%{#session.cedula}" />
+	    <s:textfield name="programa1" key="label.material" size="50" />
+	    <s:textfield name="programa2" key="label.newMaterial" size="50" />
+	    <s:submit method="execute" key="label.actualizar" align="center" />
+	</s:form>
 	
 </body>
 </html>
