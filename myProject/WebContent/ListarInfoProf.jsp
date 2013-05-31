@@ -9,7 +9,6 @@
 <title>Lista de Títulos</title>
 </head>
 <body>
-	Tu cedula es, <%= session.getAttribute( "cedula" ) %>
 	<h1>Listar información del Profesor</h1>
 	
 	<h3>Títulos</h3>
@@ -86,7 +85,7 @@
 	<s:form action="insertarProgramaAction" method="execute">
 	    <s:textfield name="nombreProf" key="label.nombreProf" size="50" />
 	    <s:hidden name="cedulaProf" value="%{#session.cedula}" />
-	    <s:textfield name="programa1" key="label.material" size="50" />
+	    <s:textfield name="programa1" key="label.programa" size="50" />
 	    <s:submit method="execute" key="label.insertProfInfo" align="center" />
 	</s:form>
 	
@@ -94,7 +93,7 @@
 	<s:form action="eliminarProgramaAction" method="execute">
 	    <s:textfield name="nombreProf" key="label.nombreProf" size="50" />
 	    <s:hidden name="cedulaProf" value="%{#session.cedula}" />
-	    <s:textfield name="programa1" key="label.material" size="50" />
+	    <s:textfield name="programa1" key="label.programa" size="50" />
 	    <s:submit method="execute" key="label.delete" align="center" />
 	</s:form>
 	
@@ -102,8 +101,8 @@
 	<s:form action="actualizarProgramaAction" method="execute">
 	    <s:textfield name="nombreProf" key="label.nombreProf" size="50" />
 	    <s:hidden name="cedulaProf" value="%{#session.cedula}" />
-	    <s:textfield name="programa1" key="label.material" size="50" />
-	    <s:textfield name="programa2" key="label.newMaterial" size="50" />
+	    <s:textfield name="programa1" key="label.programa" size="50" />
+	    <s:textfield name="programa2" key="label.newPrograma" size="50" />
 	    <s:submit method="execute" key="label.actualizar" align="center" />
 	</s:form>
 	
