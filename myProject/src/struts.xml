@@ -13,16 +13,16 @@
     <package name="default" extends="struts-default" namespace="/">
         <action name="login" method="authenticate"
             class="net.excelsior.Authentication.LoginAction">
-            <result name="successProfessor">WelcomeProf.jsp</result>
+            <result name="successProfessor">Welcome.jsp</result>
             <result name="successDpto">WelcomeDpto.jsp</result>
             <result name="error">Login.jsp</result>
         </action>
     </package>
     
     <package name="mypack" extends="struts-default" namespace="/">
-    	<action name="agregarTitulos" method="execute"
-            class="net.excelsior.InformacionProfesor.InsertInfoProfesor">
-            <result name="success">Welcome.jsp</result>
+    	<action name="mostrarTitulosAction" method="execute"
+            class="net.excelsior.InformacionProfesor.ShowTitulosAction">
+            <result name="success">ListarTitulosProf.jsp</result>
             <result name="error">Welcome.jsp</result>
         </action>
     </package>
