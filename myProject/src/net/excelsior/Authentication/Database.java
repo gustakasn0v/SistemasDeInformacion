@@ -20,9 +20,9 @@ public class Database {
 	}
 	
 	/**
-	 * Método que inicia la conexión a la base de datos
+	 * Mï¿½todo que inicia la conexiï¿½n a la base de datos
 	 * 
-	 * @return Token de conexión a la base de datos
+	 * @return Token de conexiï¿½n a la base de datos
 	 */
 	public boolean initializeConnection() {
 		try{
@@ -34,11 +34,12 @@ public class Database {
 			return false;
 		}
 		try{
-			this.connectionToken = DriverManager.getConnection(url,user,pass);
+			this.connectionToken = DriverManager.getConnection("jdbc:postgresql://localhost/marcos","marcos","postgres");
+			
 			return true;
 		}
 		catch(SQLException e){
-			System.out.println("Error iniciando la conexión");
+			System.out.println("Error iniciando la conexiï¿½n");
 			e.printStackTrace();
 			return false;
 		}
@@ -74,14 +75,14 @@ public class Database {
 	
 	
 	/**
-	 * Método que cierra la conexión a la base de datos
+	 * Mï¿½todo que cierra la conexiï¿½n a la base de datos
 	 * 
 	 */
 	public void closeConnection(){
 		try {
 			this.connectionToken.close();
 		} catch (SQLException e) {
-			System.out.println("Error cerrando la conexión");
+			System.out.println("Error cerrando la conexiï¿½n");
 			e.printStackTrace();
 		}
 	}

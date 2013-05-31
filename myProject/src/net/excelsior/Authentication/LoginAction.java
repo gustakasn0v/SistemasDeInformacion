@@ -28,7 +28,12 @@ public class LoginAction extends ActionSupport {
 	
 	public String authenticate() throws InstantiationException, IllegalAccessException{
 		if (this.data.checkPassword(this.username,this.password)){
-			return "success";
+			// Por ahora solo coloco los dos casos relevantes en un futuro hay que poner mas
+			if (this.data.isProfessor(this.username)){
+				return "successProfessor";
+			} else {
+				return "successDpto";
+			}
 		}
 		else{
 			addActionError(getText("error.login"));
