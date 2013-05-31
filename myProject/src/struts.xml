@@ -24,5 +24,21 @@
             <result name="success">Welcome.jsp</result>
             <result name="error">Welcome.jsp</result>
         </action>
+             
+
+    	<action name="CrearUsuario" method="execute"
+            class="net.excelsior.InformacionUsuario.CrearUsuario">
+            <result name="success">Login.jsp</result>
+            <result name="error">CrearUsuario.jsp</result>       
+        </action>
+
+        <action name="BorrarUsuario" method="execute"
+            class="net.excelsior.InformacionUsuario.BorrarUsuario">
+            <result name="success">Login.jsp</result>
+            <result name="error">BorrarUsuario.jsp</result>
+        </action>
+            
+
+
     </package>
 </struts>

@@ -4,17 +4,30 @@
  */
 package net.excelsior.InformacionProfesor;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+import net.excelsior.Authentication.Database;
+
 /**
  *
  * @author marcos
  */
-public class Usuario {
-    
+public class InsertInfoUsuario extends ActionSupport{
+	
+    private static final long serialVersionUID = 1L;    
     private String nombreUsuario;
     private String contrasenia;
     private String nombre;
     private String eMail;
     private long cedula;
+    private final Database dBase = new Database(
+            getText("database.jdbcToken")+getText("database.dbname"),
+			getText("database.login"),
+			getText("database.password"));    
+    
     
     public String getNombreUsuario(){
         return this.nombreUsuario;
@@ -56,5 +69,6 @@ public class Usuario {
         this.cedula = ci;
     }
     
-    
+   
+
 }

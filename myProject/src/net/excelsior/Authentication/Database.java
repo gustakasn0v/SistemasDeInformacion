@@ -20,9 +20,9 @@ public class Database {
 	}
 	
 	/**
-	 * Método que inicia la conexión a la base de datos
+	 * Mï¿½todo que inicia la conexiï¿½n a la base de datos
 	 * 
-	 * @return Token de conexión a la base de datos
+	 * @return Token de conexiï¿½n a la base de datos
 	 */
 	public boolean initializeConnection() {
 		try{
@@ -38,7 +38,7 @@ public class Database {
 			return true;
 		}
 		catch(SQLException e){
-			System.out.println("Error iniciando la conexión");
+			System.out.println("Error iniciando la conexiï¿½n");
 			e.printStackTrace();
 			return false;
 		}
@@ -66,22 +66,42 @@ public class Database {
             state.executeUpdate(command);
             
         } catch (SQLException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
-
+    /**
+     * Ingresa un nuevo usuario a la base de datos
+     * @param command 
+     * @return  True si se ingreso el usuario, False si el usuario ya existe
+     */
+    
+    public boolean executeInsertNewUser(String command){
+    	
+    	
+		if (this.userExists(command)) return false;
+		
+        try{
+            Statement state= this.connectionToken.createStatement();
+            state.executeUpdate(command);
+            return true;
+            
+        } catch (SQLException e){
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
 	
 	
 	/**
-	 * Método que cierra la conexión a la base de datos
+	 * Mï¿½todo que cierra la conexiï¿½n a la base de datos
 	 * 
 	 */
 	public void closeConnection(){
 		try {
 			this.connectionToken.close();
 		} catch (SQLException e) {
-			System.out.println("Error cerrando la conexión");
+			System.out.println("Error cerrando la conexiï¿½n");
 			e.printStackTrace();
 		}
 	}
