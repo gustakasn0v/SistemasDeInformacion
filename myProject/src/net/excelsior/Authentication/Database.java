@@ -34,7 +34,7 @@ public class Database {
 			return false;
 		}
 		try{
-			this.connectionToken = DriverManager.getConnection("jdbc:postgresql://localhost/marcos","marcos","postgres");
+			this.connectionToken = DriverManager.getConnection(url,user,pass);
 			
 			return true;
 		}
