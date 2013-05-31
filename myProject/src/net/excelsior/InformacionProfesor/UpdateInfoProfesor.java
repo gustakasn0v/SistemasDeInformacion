@@ -12,12 +12,13 @@ import net.excelsior.Authentication.Database;
  *
  * @author marcos
  */
-public class InsertInfoProfesor extends ActionSupport{
+public class UpdateInfoProfesor extends ActionSupport{
     
      private static final long serialVersionUID = 1L;
      private String nombreProf;
      private String cedulaProf;
      private String titulo1;
+     private String titulo2;
      private final Database dBase = new Database(
              getText("database.jdbcToken")+getText("database.dbname"),
 			getText("database.login"),
@@ -44,6 +45,13 @@ public class InsertInfoProfesor extends ActionSupport{
     	 return this.titulo1;
      }
      
+     public void setTitulo2(String tit2){
+    	 this.titulo2 = tit2;
+     }
+     
+     public String getTitulo2(){
+    	 return this.titulo2;
+     }
      
      /* Falta verificar un monton de cosas y hacerlo mas ordenado con una 
         clase profesor! */
@@ -70,14 +78,15 @@ public class InsertInfoProfesor extends ActionSupport{
          }
          
          
-         if (!titulo1.equals("")){
-	         String insert = "insert into formacion values ('" + titulo1 +
-	                 "', '" + nombreUsuario + "');";
-	         this.dBase.executeInsert(insert);
+         if (!titulo1.equals("") && !titulo2.equals("")){
+	         String update = "update formacion set formacion = '" + titulo2 + "' where formacion = '" 
+	        		 + titulo1 + "' and nombre_usuario ='" + nombreUsuario + "';";
+	         
+	         this.dBase.executeInsert(update);
          }
          
          
-         addActionError(getText("valid.profInfoInserted"));
+         addActionError(getText("valid.profInfoUpdated"));
          this.nombreProf = null;
          this.cedulaProf = null;
          this.titulo1= null;
@@ -85,9 +94,6 @@ public class InsertInfoProfesor extends ActionSupport{
          return "success";
  
      }
-     
-     
-     
-    
+
     
 }

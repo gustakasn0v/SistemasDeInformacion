@@ -9,10 +9,12 @@
     <h2>Bienvenido, <s:property value="username" />...!</h2>
     
     <s:actionerror />
-	<s:form action="mostrarTitulosAction" method="execute">
-    <s:textfield name="professorUsername" key="label.nombreProf" size="50" />
-    <s:submit method="execute" key="label.insertProfInfo" align="center" />
+	<s:form action="mostrarInfoProfAction" method="execute">
+    <s:textfield name="nombreProf" key="label.nombreProf" size="50" />
+    <s:textfield name="cedula" key="label.cedulaProf" size="50" />
+    <s:submit method="execute" key="label.mostrar" align="center" />
 </s:form>
+
     
 </body>
 </html>
