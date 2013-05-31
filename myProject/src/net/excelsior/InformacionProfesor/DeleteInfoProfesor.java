@@ -12,7 +12,7 @@ import net.excelsior.Authentication.Database;
  *
  * @author marcos
  */
-public class InsertInfoProfesor extends ActionSupport{
+public class DeleteInfoProfesor extends ActionSupport{
     
      private static final long serialVersionUID = 1L;
      private String nombreProf;
@@ -71,13 +71,13 @@ public class InsertInfoProfesor extends ActionSupport{
          
          
          if (!titulo1.equals("")){
-	         String insert = "insert into formacion values ('" + titulo1 +
-	                 "', '" + nombreUsuario + "');";
-	         this.dBase.executeInsert(insert);
+	         String delete = "delete from formacion where formacion = '" + titulo1 +
+	                 "' and nombre_usuario ='" + nombreUsuario + "';";
+	         this.dBase.executeInsert(delete);
          }
          
          
-         addActionError(getText("valid.profInfoInserted"));
+         addActionError(getText("valid.profInfoDeleted"));
          this.nombreProf = null;
          this.cedulaProf = null;
          this.titulo1= null;
@@ -85,9 +85,6 @@ public class InsertInfoProfesor extends ActionSupport{
          return "success";
  
      }
-     
-     
-     
-    
+
     
 }

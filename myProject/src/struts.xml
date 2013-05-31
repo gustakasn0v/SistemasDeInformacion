@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC
     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
-    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    "http://struts.apache.org/dtds/struts-2.0.dtd"> 
  
 <struts>
     <constant name="struts.enable.DynamicMethodInvocation"
@@ -13,16 +13,32 @@
     <package name="default" extends="struts-default" namespace="/">
         <action name="login" method="authenticate"
             class="net.excelsior.Authentication.LoginAction">
-            <result name="success">Welcome.jsp</result>
+            <result name="successProfessor">Welcome.jsp</result>
+            <result name="successDpto">WelcomeDpto.jsp</result>
             <result name="error">Login.jsp</result>
         </action>
     </package>
     
     <package name="mypack" extends="struts-default" namespace="/">
-    	<action name="agregarTitulos" method="execute"
-            class="net.excelsior.InformacionProfesor.InsertInfoProfesor">
-            <result name="success">Welcome.jsp</result>
+    	<action name="mostrarInfoProfAction" method="execute"
+            class="net.excelsior.InformacionProfesor.ShowInfoAction">
+            <result name="success">ListarInfoProf.jsp</result>
             <result name="error">Welcome.jsp</result>
+        </action>
+        <action name="insertarTituloAction" method="execute"
+            class="net.excelsior.InformacionProfesor.InsertInfoProfesor">
+            <result name="success">WelcomeAgregar.jsp</result>
+            <result name="error">WelcomeAgregar.jsp</result>
+        </action>
+        <action name="eliminarTituloAction" method="execute"
+            class="net.excelsior.InformacionProfesor.DeleteInfoProfesor">
+            <result name="success">WelcomeAgregar.jsp</result>
+            <result name="error">WelcomeAgregar.jsp</result>
+        </action>
+        <action name="actualizarTituloAction" method="execute"
+            class="net.excelsior.InformacionProfesor.UpdateInfoProfesor">
+            <result name="success">WelcomeAgregar.jsp</result>
+            <result name="error">WelcomeAgregar.jsp</result>
         </action>
     </package>
 </struts>

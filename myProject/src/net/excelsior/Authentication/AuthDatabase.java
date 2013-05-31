@@ -22,7 +22,7 @@ public class AuthDatabase extends ActionSupport {
 	
 	/**
 	 * Determina si un usuario existe en la base de datos
-	 * Este método siempre retorna.
+	 * Este mï¿½todo siempre retorna.
 	 * 
 	 * @param	user	Nombre del usuario a buscar 
 	 * @return			Booleano que indica si el usuario existe
@@ -43,6 +43,7 @@ public class AuthDatabase extends ActionSupport {
 			return false;
 		}
 	}
+	
 	
 	/**
 	 * Retorna la clave de un usuario. Requiere que el usuario exista-
@@ -73,7 +74,7 @@ public class AuthDatabase extends ActionSupport {
 	}
 	
 	/**
-	 * Determina si el usuario introdujo una clave válida
+	 * Determina si el usuario introdujo una clave vï¿½lida
 	 * Si el usuario no existe retorna false
 	 * 
 	 * @param	user		Nombre del usuario a buscar
@@ -87,5 +88,21 @@ public class AuthDatabase extends ActionSupport {
 		if (!this.userExists(user)) return false;
 		String hash = lookForPassword(user);
 		return hash.equals(password);
+	}
+
+	public boolean isProfessor(String username) {
+		
+		if (!this.db.initializeConnection()) return false;
+		String sqlquery = "select * from profesor where nombre_usuario= '" + username + "';";
+		ResultSet rs = this.db.executeCommand(sqlquery);
+		
+		try{
+			this.db.closeConnection();
+			return rs.next();
+		}
+		catch(SQLException e){
+			e.printStackTrace();
+			return false;
+		}
 	}
 }
