@@ -6,7 +6,7 @@
 </head>
  
 <body>
-    <h2>Bienvenido, <s:property value="username" />...!</h2>
+    <h2>Bienvenido, <%= session.getAttribute( "username" ) %>...!</h2>
     
     <s:actionerror />
 	<s:form action="mostrarInfoProfAction" method="execute">

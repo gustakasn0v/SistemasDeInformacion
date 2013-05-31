@@ -4,13 +4,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import net.excelsior.Authentication.Database;
 
-public class ShowInfoAction extends ActionSupport{
+public class ShowInfoAction extends ActionSupport implements SessionAware{
 
+	private Map session;
 	private static final long serialVersionUID = 1L;
 	private List<String> titulos;
 	private long cedula;
@@ -55,6 +60,10 @@ public class ShowInfoAction extends ActionSupport{
 	}
 	
 	public String execute(){
+		
+		Map session = ActionContext.getContext().getSession();
+		session.put("cedula",cedula);
+		
 		this.dBase.initializeConnection();
         
         String queryTitulos = "select formacion from formacion F, usuario U where " +
@@ -75,7 +84,6 @@ public class ShowInfoAction extends ActionSupport{
         	
         	while(resultMaterial.next()){
                 materialApoyo.add(resultMaterial.getString("material"));
-                System.out.println(resultMaterial.getString("material"));
             }	
         
         } catch (SQLException e){
@@ -88,6 +96,14 @@ public class ShowInfoAction extends ActionSupport{
         
 		return "success";
 		
+	}
+
+	public void setSession(Map ses) {
+		this.session = ses;	
+	}
+	
+	public Map getSession() {
+		return this.session;	
 	}
 	
 }

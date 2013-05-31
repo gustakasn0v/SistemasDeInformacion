@@ -6,7 +6,9 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.List;
+import java.util.Map;
 import net.excelsior.Authentication.Database;
+import com.opensymphony.xwork2.ActionContext;
 
 /**
  *
@@ -49,7 +51,7 @@ public class InsertInfoProfesor extends ActionSupport{
         clase profesor! */
      
      public String execute(){
-    	 
+    	 System.out.println(this.cedulaProf);
     	 this.dBase.initializeConnection();
          
          String query = "select nombre_usuario from usuario where " +
