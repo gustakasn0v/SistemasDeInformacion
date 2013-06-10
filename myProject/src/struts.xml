@@ -19,6 +19,22 @@
         </action>
     </package>
     
+    <package name="crud" extends="hibernate-default">
+		<action name="saveOrUpdateTitulo" method="saveOrUpdate" class="net.excelsior.web.TituloAction">
+			<result name="success" type="redirect">listUser</result>
+		</action>
+		<action name="listTitulo" method="list" class="net.excelsior.web.TituloAction">
+			<result name="success">/register.jsp</result>
+		</action>
+		<action name="editTitulo" method="edit" class="net.excelsior.web.TituloAction">
+			<result name="success">/register.jsp</result>
+		</action>
+		<action name="deleteTitulo" method="delete" class="net.excelsior.web.TituloAction">
+			<result name="success" type="redirect">listUser</result>
+		</action>
+	</package>
+    
+    
     <package name="titles" extends="struts-default" namespace="/">
     	<action name="modifyTitles" method="execute"
             class="net.excelsior.InformacionProfesor.ModifyTitles">
