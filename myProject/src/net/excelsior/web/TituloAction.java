@@ -19,8 +19,8 @@ public class TituloAction extends ActionSupport implements ModelDriven<Titulo> {
 	private static final long serialVersionUID = -6659925652584240539L;
 
 	private Titulo titulo = new Titulo();
-	private List<Titulo> userList = new ArrayList<Titulo>();
-	private TituloDAO userDAO = new TituloDAOImpl();
+	private List<Titulo> tituloList = new ArrayList<Titulo>();
+	private TituloDAO tituloDAO = new TituloDAOImpl();
 	
 	@Override
 	public Titulo getModel() {
@@ -33,7 +33,7 @@ public class TituloAction extends ActionSupport implements ModelDriven<Titulo> {
 	 */
 	public String saveOrUpdate()
 	{	
-		userDAO.saveOrUpdateTitulo(titulo);
+		tituloDAO.saveOrUpdateTitulo(titulo);
 		return SUCCESS;
 	}
 	
@@ -43,7 +43,7 @@ public class TituloAction extends ActionSupport implements ModelDriven<Titulo> {
 	 */
 	public String list()
 	{
-		userList = userDAO.listTitulo();
+		tituloList = tituloDAO.listTitulo();
 		return SUCCESS;
 	}
 	
@@ -54,7 +54,7 @@ public class TituloAction extends ActionSupport implements ModelDriven<Titulo> {
 	public String delete()
 	{
 		HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
-		userDAO.deleteTitulo(Long.parseLong(request.getParameter("id")));
+		tituloDAO.deleteTitulo(Long.parseLong(request.getParameter("id")));
 		return SUCCESS;
 	}
 	
@@ -65,11 +65,11 @@ public class TituloAction extends ActionSupport implements ModelDriven<Titulo> {
 	public String edit()
 	{
 		HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
-		titulo = userDAO.listTituloById(Long.parseLong(request.getParameter("id")));
+		titulo = tituloDAO.listTituloById(Long.parseLong(request.getParameter("id")));
 		return SUCCESS;
 	}
 	
-	public Titulo getUser() {
+	public Titulo getTitulo() {
 		return titulo;
 	}
 
@@ -78,11 +78,11 @@ public class TituloAction extends ActionSupport implements ModelDriven<Titulo> {
 	}
 
 	public List<Titulo> getUserList() {
-		return userList;
+		return tituloList;
 	}
 
 	public void setTituloList(List<Titulo> userList) {
-		this.userList = userList;
+		this.tituloList = userList;
 	}
 
 }
