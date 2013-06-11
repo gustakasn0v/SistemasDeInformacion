@@ -30,6 +30,7 @@ public class LoginAction extends ActionSupport {
 	 */
 	
 	public String authenticate() throws InstantiationException, IllegalAccessException{
+		System.out.println("Merwno");
 		Map session = ActionContext.getContext().getSession();
 		session.put("username",username);
 		

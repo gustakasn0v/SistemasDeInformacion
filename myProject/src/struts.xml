@@ -13,15 +13,16 @@
     <package name="default" extends="struts-default" namespace="/">
         <action name="login" method="authenticate"
             class="net.excelsior.Authentication.LoginAction">
+            <result name="success">WelcomeAgregar.jsp</result>
             <result name="successProfessor">WelcomeAgregar.jsp</result>
             <result name="successDpto">WelcomeDpto.jsp</result>
             <result name="error">Login.jsp</result>
         </action>
     </package>
     
-    <package name="crud" extends="hibernate-default">
+    <package name="crud" extends="hibernate-default" namespace="/">
 		<action name="saveOrUpdateTitulo" method="saveOrUpdate" class="net.excelsior.web.TituloAction">
-			<result name="success" type="redirect">listUser</result>
+			<result name="success" type="redirect">listTitulo</result>
 		</action>
 		<action name="listTitulo" method="list" class="net.excelsior.web.TituloAction">
 			<result name="success">/register.jsp</result>
@@ -30,7 +31,7 @@
 			<result name="success">/register.jsp</result>
 		</action>
 		<action name="deleteTitulo" method="delete" class="net.excelsior.web.TituloAction">
-			<result name="success" type="redirect">listUser</result>
+			<result name="success" type="redirect">listTitulo</result>
 		</action>
 	</package>
     

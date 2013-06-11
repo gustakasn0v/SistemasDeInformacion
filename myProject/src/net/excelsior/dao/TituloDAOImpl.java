@@ -17,7 +17,7 @@ public class TituloDAOImpl implements TituloDAO {
 	@TransactionTarget
 	Transaction transaction;
 
-	/**
+	/**Titulo
 	 * Used to save or update a user.
 	 */
 	@Override
@@ -50,13 +50,13 @@ public class TituloDAOImpl implements TituloDAO {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Titulo> listTitulo() {
-		List<Titulo> courses = null;
+		List<Titulo> result = null;
 		try {
-			courses = session.createQuery("from formacion").list();
+			result = (List<Titulo>) session.createQuery("from net.excelsior.domain.Titulo").list();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return courses;
+		return result;
 	}
 
 	/**

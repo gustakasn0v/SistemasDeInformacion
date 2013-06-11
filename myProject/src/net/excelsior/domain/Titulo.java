@@ -8,13 +8,18 @@ import javax.persistence.Id;
 @Table(name="formacion")
 public class Titulo {
 	
-	private Long id;
-	private String nombreUsuario;
-	private String formacion;
-	
 	@Id
 	@GeneratedValue
-	@Column(name="USER_ID")	
+	@Column(name="id")
+	private Long id;
+	
+	@Column(name="nombre_usuario")
+	private String nombreUsuario;
+	
+	@Column(name="formacion")	
+	private String formacion;
+	
+		
 	public Long getId() {
 		return id;
 	}
@@ -22,7 +27,7 @@ public class Titulo {
 		this.id = id;
 	}
 	
-	@Column(name="nombre_usuario")	
+		
 	public String getNombreUsuario() {
 		return this.nombreUsuario;
 	}
@@ -31,7 +36,7 @@ public class Titulo {
 		this.nombreUsuario = nombreUsuario;
 	}
 	
-	@Column(name="formacion")	
+	
 	public String getFormacion() {
 		return this.formacion;
 	}

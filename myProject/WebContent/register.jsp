@@ -15,13 +15,13 @@
 <s:form action="saveOrUpdateTitulo">
 	<s:push value="titulo">
 		<s:hidden name="id" />
-		<s:hidden name="nombreUsuario" value=%{#session.usernam} />
+		<s:hidden name="nombreUsuario" value="%{#session.username}" />
 		<s:textfield name="formacion" key="label.titulo" />
 		<s:submit />
 	</s:push>
 </s:form>
 
-<s:if test="userList.size() > 0">
+<s:if test="tituloList.size() > 0">
 	<div class="content">
 	<table class="userTable" cellpadding="5px">
 		<tr class="even">

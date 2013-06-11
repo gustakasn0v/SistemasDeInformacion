@@ -8,7 +8,7 @@
 <body>
     <h2>Bienvenido, <%= session.getAttribute( "username" ) %>...!</h2>
     
-    <s:url id="url" action="modifyTitles">
+    <s:url id="url" action="listTitulo">
 	</s:url>
 	<s:a href="%{url}">Modificar títulos académicos</s:a>
 
