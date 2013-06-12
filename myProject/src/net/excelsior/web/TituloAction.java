@@ -73,16 +73,16 @@ public class TituloAction extends ActionSupport implements ModelDriven<Titulo> {
 		return titulo;
 	}
 
-	public void setUser(Titulo user) {
-		this.titulo = user;
+	public void setTitulo(Titulo titulo) {
+		this.titulo = titulo;
 	}
 
-	public List<Titulo> getUserList() {
+	public List<Titulo> getTituloList() {
 		return tituloList;
 	}
 
-	public void setTituloList(List<Titulo> userList) {
-		this.tituloList = userList;
+	public void setTituloList(List<Titulo> tituloList) {
+		this.tituloList = tituloList;
 	}
 
 }
