@@ -29,13 +29,14 @@ public class LoginAction extends ActionSupport {
 	 * 
 	 */
 	
-	public String authenticate() throws InstantiationException, IllegalAccessException{
-		Map session = ActionContext.getContext().getSession();
-		session.put("username",username);
+	public String execute() throws InstantiationException, IllegalAccessException{
+		
 		
 		if (this.data.checkPassword(this.username,this.password)){
 			// Por ahora solo coloco los dos casos relevantes en un futuro hay que poner mas
 			if (this.data.isProfessor(this.username)){
+				Map session = ActionContext.getContext().getSession();
+				session.put("username",username);
 				return "successProfessor";
 			} else {
 				return "successDpto";

@@ -11,13 +11,27 @@
         value="ApplicationResources" />
  
     <package name="default" extends="struts-default" namespace="/">
-        <action name="login" method="authenticate"
-            class="net.excelsior.Authentication.LoginAction">
+        <action name="login" class="net.excelsior.Authentication.LoginAction">
             <result name="successProfessor">WelcomeAgregar.jsp</result>
             <result name="successDpto">WelcomeDpto.jsp</result>
             <result name="error">Login.jsp</result>
         </action>
     </package>
+    
+    <package name="default2" extends="hibernate-default">
+		<action name="saveOrUpdateTitulo" method="saveOrUpdate" class="net.excelsior.web.TituloAction">
+			<result name="success" type="redirect">listTitulo</result>
+		</action>
+		<action name="listTitulo" method="list" class="net.excelsior.web.TituloAction">
+			<result name="success">/register.jsp</result>
+		</action>
+		<action name="editTitulo" method="edit" class="net.excelsior.web.TituloAction">
+			<result name="success">/register.jsp</result>
+		</action>
+		<action name="deleteTitulo" method="delete" class="net.excelsior.web.TituloAction">
+			<result name="success" type="redirect">listTitulo</result>
+		</action>
+	</package>
     
     <package name="titles" extends="struts-default" namespace="/">
     	<action name="mostrarInfoProfAction" method="execute"

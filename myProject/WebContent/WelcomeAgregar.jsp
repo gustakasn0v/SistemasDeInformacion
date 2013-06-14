@@ -8,12 +8,9 @@
 <body>
     <h2>Bienvenido, <%= session.getAttribute( "username" ) %>...!</h2>
     
-    <s:actionerror />
-	<s:form action="mostrarInfoProfAction" method="execute">
-    <s:textfield name="nombreProf" key="label.nombreProf" size="50" />
-    <s:textfield name="cedula" key="label.cedulaProf" size="50" />
-    <s:submit method="execute" key="label.mostrar" align="center" />
-</s:form>
+    <s:url id="url" action="listTitulo">
+	</s:url>
+	<s:a href="%{url}">Modificar títulos académicos</s:a>
 
     
 </body>
