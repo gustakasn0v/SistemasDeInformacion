@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <faceted-project>
-  <runtime name="jboss-4.2.3.GA Runtime"/>
+  <runtime name="jboss-as-7.1.1.Final Runtime"/>
+  <secondary-runtime name="jboss-4.2.3.GA Runtime"/>
   <fixed facet="jst.web"/>
   <fixed facet="wst.jsdt.web"/>
   <fixed facet="java"/>
