@@ -16,6 +16,8 @@
 	<s:push value="titulo">
 		<s:hidden name="id" />
 		<s:textfield name="formacion" label="Titulo" />
+		<s:textfield name="institucion" label="Institucion" />
+		<s:textfield name="tipoformacion" label="Tipo" />
 		<s:hidden name="nombreusuario" value="%{#session.username}" />
 		<s:submit />
 	</s:push>
@@ -26,7 +28,8 @@
 	<table class="tituloTable" cellpadding="5px">
 		<tr class="even">
 			<th>Titulo</th>
-			<th>Nombre de Usuario</th>
+			<th>Institución</th>
+			<th>Tipo</th>
 			<th>Editar</th>
 			<th>Borrar</th>
 		</tr>
@@ -34,7 +37,8 @@
 			<tr
 				class="<s:if test="#tituloStatus.odd == true ">odd</s:if><s:else>even</s:else>">
 				<td><s:property value="formacion" /></td>
-				<td><s:property value="nombreusuario" /></td>
+				<td><s:property value="institucion" /></td>
+				<td><s:property value="tipoformacion" /></td>
 				<td><s:url id="editURL" action="editTitulo">
 					<s:param name="id" value="%{id}"></s:param>
 				</s:url> <s:a href="%{editURL}">Editar</s:a></td>
