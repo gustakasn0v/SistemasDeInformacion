@@ -6,11 +6,15 @@
 </head>
  
 <body>
-    <h2>Bienvenido, <%= session.getAttribute( "username" ) %>...!</h2>
+    <h2>Bienvenido, <%= session.getAttribute( "username" ) %></h2>
     
     <s:url id="url" action="listTitulo">
 	</s:url>
 	<s:a href="%{url}">Modificar títulos académicos</s:a>
+	
+	<s:url id="url" action="listMaterialApoyo">
+	</s:url>
+	<s:a href="%{url}">Modificar materiales de apoyo</s:a>
 
     
 </body>

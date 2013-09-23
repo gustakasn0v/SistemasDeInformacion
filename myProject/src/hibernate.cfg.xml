@@ -14,5 +14,7 @@
   <property name="hibernate.hbm2ddl.auto">update</property>
   <property name="hibernate.show_sql">true</property>
   <mapping class="net.excelsior.domain.Titulo"/>
+  <mapping class="net.excelsior.domain.MaterialApoyo"/>
+  <mapping class="net.excelsior.domain.Profesor"/>
  </session-factory>
 </hibernate-configuration>

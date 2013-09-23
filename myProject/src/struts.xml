@@ -34,17 +34,17 @@
 	</package>
 	
 	<package name="default3" extends="hibernate-default">
-		<action name="saveOrUpdateMaterial" method="saveOrUpdate" class="net.excelsior.web.MaterialApoyoAction">
-			<result name="success" type="redirect">listTitulo</result>
+		<action name="saveOrUpdateMaterialApoyo" method="saveOrUpdate" class="net.excelsior.web.MaterialApoyoAction">
+			<result name="success" type="redirect">listMaterialApoyo</result>
 		</action>
-		<action name="listMaterial" method="list" class="net.excelsior.web.MaterialApoyoAction">
+		<action name="listMaterialApoyo" method="list" class="net.excelsior.web.MaterialApoyoAction">
 			<result name="success">/registerMaterial.jsp</result>
 		</action>
-		<action name="editMaterial" method="edit" class="net.excelsior.web.MaterialApoyoAction">
+		<action name="editMaterialApoyo" method="edit" class="net.excelsior.web.MaterialApoyoAction">
 			<result name="success">/registerMaterial.jsp</result>
 		</action>
-		<action name="deleteMaterial" method="delete" class="net.excelsior.web.MaterialApoyoAction">
-			<result name="success" type="redirect">listMaterial</result>
+		<action name="deleteMaterialApoyo" method="delete" class="net.excelsior.web.MaterialApoyoAction">
+			<result name="success" type="redirect">listMaterialApoyo</result>
 		</action>
 	</package>
     

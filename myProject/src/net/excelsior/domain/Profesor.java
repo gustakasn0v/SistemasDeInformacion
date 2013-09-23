@@ -25,9 +25,25 @@ public class Profesor {
     @ManyToMany(mappedBy="profesores")
     private Set<MaterialApoyo> materiales = new HashSet<MaterialApoyo>();
      
-    public Profesor(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
+    public Profesor() {
+
     }
+    
+    public Profesor(String nombreUsuario) {
+        this.setNombreUsuario(nombreUsuario);
+    }
+
+	public String getNombreUsuario() {
+		return nombreUsuario;
+	}
+
+	public void setNombreUsuario(String nombreUsuario) {
+		this.nombreUsuario = nombreUsuario;
+	}
+	
+	public boolean equals(Object o){
+		return o instanceof Profesor && ((Profesor)o).nombreUsuario.equals(this.nombreUsuario);
+	}
      
     // Getter and Setter methods
 }

@@ -6,8 +6,8 @@ import net.excelsior.domain.MaterialApoyo;
 
 public interface MaterialApoyoDAO {
 
-	public void saveOrUpdateMaterialApoyo(MaterialApoyo material);
+	public void saveOrUpdateMaterialApoyo(MaterialApoyo material,String username);
 	public List<MaterialApoyo> listMaterialApoyo(String username);
-	public MaterialApoyo listMaterialApoyoById(String titulo);
-	public void deleteMaterialApoyo(String titulo);
+	public MaterialApoyo listMaterialApoyoById(Long id);
+	public void deleteMaterialApoyo(Long id);
 }

@@ -20,13 +20,13 @@ public class MaterialApoyoAction extends ActionSupport implements ModelDriven<Ma
 
 	private static final long serialVersionUID = -6659925652584240539L;
 
-	private MaterialApoyo material = new MaterialApoyo();
-	private List<MaterialApoyo> materialList = new ArrayList<MaterialApoyo>();
-	private MaterialApoyoDAO materialDAO = new MaterialApoyoDAOImpl();
+	private MaterialApoyo materialApoyo = new MaterialApoyo();
+	private List<MaterialApoyo> materialApoyoList = new ArrayList<MaterialApoyo>();
+	private MaterialApoyoDAO materialApoyoDAO = new MaterialApoyoDAOImpl();
 	
 	
 	public MaterialApoyo getModel() {
-		return material;
+		return materialApoyo;
 	}
 	
 	/**
@@ -35,7 +35,9 @@ public class MaterialApoyoAction extends ActionSupport implements ModelDriven<Ma
 	 */
 	public String saveOrUpdate()
 	{	
-		materialDAO.saveOrUpdateMaterialApoyo(material);
+		Map<String, Object> session = ActionContext.getContext().getSession();
+		String username = (String) session.get("username");
+		materialApoyoDAO.saveOrUpdateMaterialApoyo(materialApoyo,username);
 		return SUCCESS;
 	}
 	
@@ -48,7 +50,7 @@ public class MaterialApoyoAction extends ActionSupport implements ModelDriven<Ma
 		Map<String, Object> session = ActionContext.getContext().getSession();
 		String username = (String) session.get("username");
 		
-		materialList = materialDAO.listMaterialApoyo(username);
+		materialApoyoList = materialApoyoDAO.listMaterialApoyo(username);
 		return SUCCESS;
 	}
 	
@@ -59,7 +61,8 @@ public class MaterialApoyoAction extends ActionSupport implements ModelDriven<Ma
 	public String delete()
 	{
 		HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
-		materialDAO.deleteMaterialApoyo(request.getParameter("id"));
+		System.out.println(request.getParameter("id"));
+		materialApoyoDAO.deleteMaterialApoyo(Long.parseLong(request.getParameter("id")));
 		return SUCCESS;
 	}
 	
@@ -70,24 +73,24 @@ public class MaterialApoyoAction extends ActionSupport implements ModelDriven<Ma
 	public String edit()
 	{
 		HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
-		material = materialDAO.listMaterialApoyoById(request.getParameter("id"));
+		materialApoyo = materialApoyoDAO.listMaterialApoyoById(Long.parseLong(request.getParameter("id")));
 		return SUCCESS;
 	}
 	
 	public MaterialApoyo getMaterialApoyo() {
-		return material;
+		return materialApoyo;
 	}
 
 	public void setMaterialApoyo(MaterialApoyo material) {
-		this.material = material;
+		this.materialApoyo = material;
 	}
 
 	public List<MaterialApoyo> getMaterialApoyoList() {
-		return materialList;
+		return materialApoyoList;
 	}
 
 	public void setMaterialApoyoList(List<MaterialApoyo> materialList) {
-		this.materialList = materialList;
+		this.materialApoyoList = materialList;
 	}
 
 }
