@@ -17,8 +17,8 @@
 	<s:push value="titulo">
 		<s:hidden name="id" />
 		<s:textfield key="titulo.formacion"/>
-		<s:textfield key="titulo.institucion" label="Institucion" />
-		<s:textfield key="titulo.tipoformacion" label="Tipo" />
+		<s:textfield key="titulo.institucion"/>
+		<s:textfield key="titulo.tipoformacion"/>
 		<s:hidden name="nombreusuario" value="%{#session.username}" />
 		<s:submit />
 	</s:push>
