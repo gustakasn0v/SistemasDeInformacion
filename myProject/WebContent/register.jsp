@@ -12,12 +12,13 @@
 </style>
 </head>
 <body>
+<s:actionerror/>
 <s:form action="saveOrUpdateTitulo">
 	<s:push value="titulo">
 		<s:hidden name="id" />
-		<s:textfield name="formacion" label="Titulo" />
-		<s:textfield name="institucion" label="Institucion" />
-		<s:textfield name="tipoformacion" label="Tipo" />
+		<s:textfield key="titulo.formacion"/>
+		<s:textfield key="titulo.institucion" label="Institucion" />
+		<s:textfield key="titulo.tipoformacion" label="Tipo" />
 		<s:hidden name="nombreusuario" value="%{#session.username}" />
 		<s:submit />
 	</s:push>

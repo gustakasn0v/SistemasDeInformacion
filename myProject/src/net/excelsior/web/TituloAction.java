@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import org.hibernate.validator.Valid;
 
 import net.excelsior.dao.TituloDAO;
 import net.excelsior.dao.TituloDAOImpl;
@@ -19,7 +20,8 @@ import com.opensymphony.xwork2.ModelDriven;
 public class TituloAction extends ActionSupport implements ModelDriven<Titulo> {
 
 	private static final long serialVersionUID = -6659925652584240539L;
-
+    
+	@Valid
 	private Titulo titulo = new Titulo();
 	private List<Titulo> tituloList = new ArrayList<Titulo>();
 	private TituloDAO tituloDAO = new TituloDAOImpl();

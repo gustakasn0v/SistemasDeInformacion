@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.validator.NotEmpty;
+
 import java.util.Date;
 
 @Entity
@@ -28,6 +31,7 @@ public class Titulo {
 		this.id = id;
 	}
 	
+	@NotEmpty(message = "El nombre de la formacion no puede estar vacío")
 	@Column(name="nombre_formacion")
 	public String getFormacion() {
 		return formacion;
@@ -44,6 +48,7 @@ public class Titulo {
 		this.nombreusuario = nu;
 	}
 	
+	@NotEmpty(message = "El nombre de la institucion no puede estar vacío")
 	@Column(name="institucion")
 	public String getInstitucion() {
 		return institucion;
@@ -52,6 +57,7 @@ public class Titulo {
 		this.institucion = institucion;
 	}
 	
+	@NotEmpty(message = "El tipo de formacion no puede estar vacio")
 	@Column(name="tipo_formacion")
 	public String getTipoformacion() {
 		return tipoformacion;
