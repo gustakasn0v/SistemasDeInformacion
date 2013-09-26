@@ -18,7 +18,7 @@
 		<s:hidden name="id" />
 		<s:textfield key="titulo.formacion"/>
 		<s:textfield key="titulo.institucion"/>
-		<s:radio key="titulo.tipoformacion" list="{'Titulo','Curso'}" />
+		<s:radio key="titulo.tipoformacion" list="#{'1':'Titulo','2':'Curso'}" value="1" />
 		<s:hidden name="nombreusuario" value="%{#session.username}" />
 		<s:submit />
 	</s:push>
