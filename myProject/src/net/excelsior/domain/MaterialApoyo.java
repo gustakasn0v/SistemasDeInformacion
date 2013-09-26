@@ -14,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import org.hibernate.validator.NotEmpty;
  
 @Entity
 @Table(name="MATERIAL_APOYO")
@@ -24,12 +26,15 @@ public class MaterialApoyo {
     @GeneratedValue
     private Long Id;
 	
+    @NotEmpty(message = "El nombre del material no puede estar vacío")
     @Column(name="TITULO_MATERIAL")
     private String titulo;
      
+    @NotEmpty(message = "El campo del archivo no puede estar vacío")
     @Column(name="ARCHIVO")
     private String archivo;
     
+    @NotEmpty(message = "El nombre del revisor no puede estar vacío")
     @Column(name="REVISOR")
     private String revisor;
      

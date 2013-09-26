@@ -27,6 +27,7 @@ public class TituloAction extends ActionSupport implements ModelDriven<Titulo> {
 	private TituloDAO tituloDAO = new TituloDAOImpl();
 	
 	
+	
 	public Titulo getModel() {
 		return titulo;
 	}

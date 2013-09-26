@@ -12,11 +12,12 @@
 </style>
 </head>
 <body>
+<s:actionerror/>
 <s:form action="saveOrUpdateMaterialApoyo">
 	<s:push value="materialApoyo">
-		<s:textfield name="titulo" label="Titulo" />
-		<s:textfield name="archivo" label="Archivo" />
-		<s:textfield name="revisor" label="Revisor" />
+		<s:textfield key="materialApoyo.titulo" />
+		<s:textfield key="materialApoyo.archivo" />
+		<s:textfield key="materialApoyo.revisor" />
 		<s:submit />
 	</s:push>
 </s:form>

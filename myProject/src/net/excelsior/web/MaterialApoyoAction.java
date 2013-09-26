@@ -11,6 +11,7 @@ import net.excelsior.dao.MaterialApoyoDAOImpl;
 import net.excelsior.domain.MaterialApoyo;
 
 import org.apache.struts2.ServletActionContext;
+import org.hibernate.validator.Valid;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -20,7 +21,9 @@ public class MaterialApoyoAction extends ActionSupport implements ModelDriven<Ma
 
 	private static final long serialVersionUID = -6659925652584240539L;
 
+	@Valid
 	private MaterialApoyo materialApoyo = new MaterialApoyo();
+	
 	private List<MaterialApoyo> materialApoyoList = new ArrayList<MaterialApoyo>();
 	private MaterialApoyoDAO materialApoyoDAO = new MaterialApoyoDAOImpl();
 	

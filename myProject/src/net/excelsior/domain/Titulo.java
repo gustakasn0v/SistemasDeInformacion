@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
 
 import org.hibernate.validator.NotEmpty;
 
@@ -34,7 +36,7 @@ public class Titulo {
 	@NotEmpty(message = "El nombre de la formacion no puede estar vacío")
 	@Column(name="nombre_formacion")
 	public String getFormacion() {
-		return formacion;
+		return this.formacion;
 	}
 	public void setFormacion(String formacion) {
 		this.formacion = formacion;
@@ -60,7 +62,13 @@ public class Titulo {
 	@NotEmpty(message = "El tipo de formacion no puede estar vacio")
 	@Column(name="tipo_formacion")
 	public String getTipoformacion() {
-		return tipoformacion;
+		if (this.tipoformacion.equals("1")){
+			return "Titulo";
+		}
+		else if (this.tipoformacion.equals("2")){
+			return "Curso";
+		}
+		else return this.tipoformacion;
 	}
 	public void setTipoformacion(String tipoformacion) {
 		this.tipoformacion = tipoformacion;

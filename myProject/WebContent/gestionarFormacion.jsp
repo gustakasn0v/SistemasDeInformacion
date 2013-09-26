@@ -51,5 +51,10 @@
 	</table>
 	</div>
 </s:if>
+
+<s:url id="url" action="login">
+</s:url>
+<s:a href="%{url}">Volver al menu anterior</s:a>
+
 </body>
 </html>
