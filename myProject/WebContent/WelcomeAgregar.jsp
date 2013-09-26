@@ -20,7 +20,7 @@
 		</s:url>
 		<s:a href="%{url}">Modificar materiales de apoyo</s:a>
 	</div>
-
+	<div id="sidebarR"></div>
     <h4>Bienvenido, <%= session.getAttribute( "username" ) %></h4> 
     <h5>Elija una opcion del menu a su izquierda</h5>
     
