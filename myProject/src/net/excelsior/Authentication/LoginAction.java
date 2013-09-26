@@ -95,4 +95,16 @@ public class LoginAction extends ActionSupport {
 	public void setPassword(String pass){
 		this.password = pass;
 	}
+	
+	/**
+	 * Desloguea al usuario
+	 * Este m�todo siempre retorna.
+	 *
+	 */
+	
+	public String logout(){
+		Map<String, Object> session = ActionContext.getContext().getSession();
+		session.remove("username");
+		return("success");
+	}
 }

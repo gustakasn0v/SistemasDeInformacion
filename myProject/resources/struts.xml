@@ -16,6 +16,9 @@
             <result name="successDpto">WelcomeDpto.jsp</result>
             <result name="error">Login.jsp</result>
         </action>
+        <action name="logout" method="logout" class="net.excelsior.Authentication.LoginAction">
+            <result name="success">Login.jsp</result>
+        </action>
     </package>
     
     <package name="default2" extends="hibernate-default">

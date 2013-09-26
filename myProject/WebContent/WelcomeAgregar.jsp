@@ -18,7 +18,12 @@
 		
 		<s:url id="url" action="listMaterialApoyo">
 		</s:url>
-		<s:a href="%{url}">Modificar materiales de apoyo</s:a>
+		<s:a href="%{url}">Modificar materiales de apoyo</s:a><br/><br/>
+		
+		<s:url id="url" action="logout">
+		</s:url>
+		<s:a href="%{url}">Cerrar sesión</s:a>
+		
 	</div>
 	<div id="sidebarR"></div>
     <h4>Bienvenido, <%= session.getAttribute( "username" ) %></h4> 
