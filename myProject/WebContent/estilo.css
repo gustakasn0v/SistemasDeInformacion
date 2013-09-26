@@ -15,37 +15,43 @@ body {
 }
 
 #sidebarR {
-    width: 25%;
-    height: 250px;
+    width: 20%;
+    height: 90%;
     float: right;
     margin-top: 50px;
+    text-align: center;
 }
 
 #sidebarL {
-    width: 25%;
+	text-align: center;
+    width: 20%;
     float: left;
     margin-top: 50px;
-    height: 250px;
+    height: 90%;
 }
 
 #banner{
     background-image:url('borde2.jpg');
     background-repeat:no-repeat;
-    background-position:left;
+    background-position:center;
     height: 250px;
     width: 100%;
     float: top;
 }
 
-#login-form{
-    width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+#center{
+	margin:auto;
+    width: 60%;
     background-color: white;
     text-align: center;
-    padding: 3px;
+    padding: 5px;
+    height: 90%;
 }
 
+#medio {
+	position: relative;
+	left:12%;
+}
 h1 {
     letter-spacing: 3px;
     font-size: 1.4em;
@@ -85,10 +91,4 @@ h6 {
     font-size: 0.875em;
     color:#B22222;
     font-family: sans-serif;
-}
-
-.center
-{
-text-align:right;
-text-indent:200px;
 }
