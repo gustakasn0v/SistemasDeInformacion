@@ -10,7 +10,8 @@
 
 <div id="body-content">
 	<div id="banner"></div>
-	
+	<div id="sidebarL"></div>
+	<div id="sidebarR"></div>
 	<div id="center">
    	<h4>Bienvenido</h4>
 	   	<h5>En el siguiente sistema, el Coordinador docente puede realizar la evaluación correspondiente a

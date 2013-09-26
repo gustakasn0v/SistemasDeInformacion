@@ -30,12 +30,22 @@ public class LoginAction extends ActionSupport {
 	 */
 	
 	public String execute() throws InstantiationException, IllegalAccessException{
-		
+		// Verifico si ya el usuario se logueo antes
+		Map<String, Object> session = ActionContext.getContext().getSession();
+		String usuarioPrevio = (String)session.get("username");
+		if (usuarioPrevio != null){
+			this.setUsername(usuarioPrevio);
+			if (this.data.isProfessor(this.username)){
+				session.put("username",username);
+				return "successProfessor";
+			} else {
+				return "successDpto";
+			}
+		}
 		
 		if (this.data.checkPassword(this.username,this.password)){
 			// Por ahora solo coloco los dos casos relevantes en un futuro hay que poner mas
 			if (this.data.isProfessor(this.username)){
-				Map session = ActionContext.getContext().getSession();
 				session.put("username",username);
 				return "successProfessor";
 			} else {
