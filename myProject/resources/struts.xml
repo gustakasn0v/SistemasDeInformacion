@@ -23,6 +23,7 @@
     
     <package name="default2" extends="hibernate-default">
 		<action name="saveOrUpdateTitulo" method="saveOrUpdate" class="net.excelsior.web.TituloAction">
+			<result name="input" type="redirect">/InformacionNoAgregada.jsp</result>
 			<result name="success">/InformacionAgregada.jsp</result>
 		</action>
 		<action name="modTitulo" method="Mod" class="net.excelsior.web.TituloAction">
@@ -35,7 +36,7 @@
 		</action>
 		<action name="editTitulo" method="edit" class="net.excelsior.web.TituloAction">
 			<interceptor-ref name="basicStackHibernate" />
-			<result name="success">/gestionarFormacion.jsp</result>
+			<result name="success">/agregarFormacion.jsp</result>
 		</action>
 		<action name="deleteTitulo" method="delete" class="net.excelsior.web.TituloAction">
 		    <interceptor-ref name="basicStackHibernate" />
@@ -45,7 +46,7 @@
 	
 	<package name="default3" extends="hibernate-default">
 		<action name="saveOrUpdateMaterialApoyo" method="saveOrUpdate" class="net.excelsior.web.MaterialApoyoAction">
-			<result name="input">/agregarMaterial.jsp</result>
+			<result name="input" type="redirect">/InformacionNoAgregada.jsp</result>
 			<result name="success" type="redirect">/InformacionAgregada.jsp</result>
 		</action>
 		<action name="modMaterial" method="Mod" class="net.excelsior.web.MaterialApoyoAction">
@@ -53,12 +54,15 @@
 			<result name="success">/AgregarMaterial.jsp</result>
 		</action>
 		<action name="listMaterialApoyo" method="list" class="net.excelsior.web.MaterialApoyoAction">
+			<interceptor-ref name="basicStackHibernate" />
 			<result name="success">/gestionarMaterial.jsp</result>
 		</action>
 		<action name="editMaterialApoyo" method="edit" class="net.excelsior.web.MaterialApoyoAction">
-			<result name="success">/gestionarMaterial.jsp</result>
+			<interceptor-ref name="basicStackHibernate" />
+			<result name="success">/AgregarMaterial.jsp</result>
 		</action>
 		<action name="deleteMaterialApoyo" method="delete" class="net.excelsior.web.MaterialApoyoAction">
+			<interceptor-ref name="basicStackHibernate" />
 			<result name="success" type="redirect">listMaterialApoyo</result>
 		</action>
 	</package>
