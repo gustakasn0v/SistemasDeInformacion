@@ -13,17 +13,6 @@
 </head>
 <body>
 <s:actionerror/>
-<s:form action="saveOrUpdateTitulo">
-	<s:push value="titulo">
-		<s:hidden name="id" />
-		<s:textfield key="titulo.formacion"/>
-		<s:textfield key="titulo.institucion"/>
-		<s:radio key="titulo.tipoformacion" list="#{'1':'Titulo','2':'Curso'}" value="1" />
-		<s:hidden name="nombreusuario" value="%{#session.username}" />
-		<s:submit />
-	</s:push>
-</s:form>
-
 <s:if test="tituloList.size() > 0">
 	<div class="content">
 	<table class="tituloTable" cellpadding="5px">

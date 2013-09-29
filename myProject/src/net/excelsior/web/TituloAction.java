@@ -54,7 +54,11 @@ public class TituloAction extends ActionSupport implements ModelDriven<Titulo> {
 		tituloList = tituloDAO.listTitulo(username);
 		return SUCCESS;
 	}
-	
+
+	public String Mod()
+	{
+		return SUCCESS;
+	}
 	/**
 	 * To delete a user.
 	 * @return String

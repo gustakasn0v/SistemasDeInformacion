@@ -80,6 +80,11 @@ public class MaterialApoyoAction extends ActionSupport implements ModelDriven<Ma
 		return SUCCESS;
 	}
 	
+	public String Mod()
+	{
+		return SUCCESS;
+	}
+
 	public MaterialApoyo getMaterialApoyo() {
 		return materialApoyo;
 	}

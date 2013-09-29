@@ -2,37 +2,37 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 <link rel="stylesheet" type="text/css" href="estilo.css"/>
-<html> 
+<html>
 <head>
-<title>Welcome</title>
+<title>Bienvenida profesor</title>
 </head>
- 
 <body>
 
-<div id="body-content">
-	<div id="banner"></div>
-    <div id="sidebarL">
-	    <s:url id="url" action="listTitulo">
-		</s:url>
-		<s:a href="%{url}">Modificar títulos académicos</s:a> <br/><br/>
-		
-		<s:url id="url" action="listMaterialApoyo">
-		</s:url>
-		<s:a href="%{url}">Modificar materiales de apoyo</s:a><br/><br/>
-		
-		<s:url id="url" action="logout">
-		</s:url>
-		<s:a href="%{url}">Cerrar sesión</s:a>
-		
-	</div>
-	<div id="sidebarR"></div>
-    <h4>Bienvenido, <%= session.getAttribute( "username" ) %></h4> 
-    <h5>Elija una opcion del menu a su izquierda</h5>
-    
+<div class="container_3">
+	<div class="grid_3"><div class="banner"></div><div class="blue_bar">Bienvenido, <%= session.getAttribute( "username" ) %> </div></div>
+	    <div class="grid_1">
+	    	<p></p>
+	    	
+		    <s:url id="url" action="modMaterial"></s:url>
+			<s:a href="%{url}">Agregar material de apoyo</s:a><br/><br/>
+			
+		    <s:url id="url" action="modTitulo"></s:url>
+			<s:a href="%{url}">Agregar títulos académicos</s:a><br/><br/>
+	    	
+		    <s:url id="url" action="listTitulo"></s:url>
+			<s:a href="%{url}">Mostar/Modificar títulos académicos</s:a><br/><br/>
+			
+			<s:url id="url" action="listMaterialApoyo"></s:url>
+			<s:a href="%{url}">Mostrar/Modificar material de apoyo</s:a><br/><br/>
+			
+			<s:url id="url" action="logout"></s:url>
+			<s:a href="%{url}">Cerrar sesión</s:a>
+		</div>
+		<div class="grid_2">
+		    <h5>Elija una opcion del menu a su izquierda. En esta sección usted podrá modificar su información académica
+		    almacenada en el sistema, o agregarla si es usuario nuevo.</h5>
+	    </div>
 
-</div>
-
-
-
+    </div>
 </body>
 </html>
