@@ -16,5 +16,6 @@
   <mapping class="net.excelsior.domain.Titulo"/>
   <mapping class="net.excelsior.domain.MaterialApoyo"/>
   <mapping class="net.excelsior.domain.Profesor"/>
+  <mapping class="net.excelsior.domain.Materia"/>
  </session-factory>
 </hibernate-configuration>

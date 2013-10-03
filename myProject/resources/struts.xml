@@ -66,6 +66,25 @@
 			<result name="success" type="redirect">listMaterialApoyo</result>
 		</action>
 	</package>
+	
+	<package name="default4" extends="hibernate-default">
+		<action name="saveOrUpdateMateria" method="saveOrUpdate" class="net.excelsior.web.MateriaAction">
+			<result name="success" type="redirect">listMateria</result>
+			<result name="input">/gestionarMateria.jsp</result>
+		</action>
+		<action name="listMateria" method="list" class="net.excelsior.web.MateriaAction">
+			<interceptor-ref name="basicStackHibernate" />
+			<result name="success">/gestionarMateria.jsp</result>
+		</action>
+		<action name="editMateria" method="edit" class="net.excelsior.web.MateriaAction">
+			<interceptor-ref name="basicStackHibernate" />
+			<result name="success">/gestionarMateria.jsp</result>
+		</action>
+		<action name="deleteMateria" method="delete" class="net.excelsior.web.MateriaAction">
+			<interceptor-ref name="basicStackHibernate" />
+			<result name="success" type="redirect">listMateria</result>
+		</action>
+	</package>
     
     <package name="titles" extends="struts-default" namespace="/">
     	<action name="mostrarInfoProfAction" method="execute"
