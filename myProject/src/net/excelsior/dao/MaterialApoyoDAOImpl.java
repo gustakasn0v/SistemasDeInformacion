@@ -29,7 +29,8 @@ public class MaterialApoyoDAOImpl implements MaterialApoyoDAO {
 	 */
 	public void saveOrUpdateMaterialApoyo(MaterialApoyo material,String username) {
 		try {
-			material.profesores.add(new Profesor(username));
+			List<Profesor> listaProf = session.createQuery("from Profesor where nombre_usuario = '"+username+"'").list();
+			material.profesores.add(listaProf.get(0));
 			session.saveOrUpdate(material);
 		} catch (Exception e) {
 			transaction.rollback();

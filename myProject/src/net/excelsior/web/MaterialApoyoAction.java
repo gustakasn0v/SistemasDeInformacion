@@ -64,7 +64,6 @@ public class MaterialApoyoAction extends ActionSupport implements ModelDriven<Ma
 	public String delete()
 	{
 		HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
-		System.out.println(request.getParameter("id"));
 		materialApoyoDAO.deleteMaterialApoyo(Long.parseLong(request.getParameter("id")));
 		return SUCCESS;
 	}
@@ -77,6 +76,7 @@ public class MaterialApoyoAction extends ActionSupport implements ModelDriven<Ma
 	{
 		HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
 		materialApoyo = materialApoyoDAO.listMaterialApoyoById(Long.parseLong(request.getParameter("id")));
+		System.out.println(materialApoyo.getId());
 		return SUCCESS;
 	}
 	
