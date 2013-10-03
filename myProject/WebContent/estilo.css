@@ -9,6 +9,11 @@ body {
 	font-family: Arial, Verdana, sans-serif;
 }
 
+.grid_4 {
+	float: right;
+	position: relative;
+	margin: 10px;
+}
 
 .grid_1,
 .grid_2,

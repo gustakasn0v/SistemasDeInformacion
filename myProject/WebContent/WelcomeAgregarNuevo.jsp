@@ -10,6 +10,18 @@
 
 <div class="container_3">
 	<div class="grid_3"><div class="banner"></div><div class="blue_bar">Bienvenido, <%= session.getAttribute( "username" ) %> </div></div>
+		<div class="grid_4">
+	    	<p><img alt="" src="pictures/somosusb.gif"></p>
+	    	<p><a href="https://documentosdace.dii.usb.ve/documentosdace/" target="_blank"><img alt="" src="pictures/taquilla.jpg"></a></p>
+	    	<p>	<a href="http://www.dace.usb.ve/sites/default/files/pdf/aranceles.pdf" target="_blank"><img alt="" src="pictures/aranceles.jpg"></a></p>
+	    	<p>	<a href="http://www.dace.usb.ve/node/31"><img alt="" src="pictures/calendario.jpg"></a></p>
+	    	<p>	<a href="http://www.dace.usb.ve/node/29"><img alt="" src="pictures/faq.jpg"></a></p>
+	    	<p>	<a href="http://sistema.cenda.usb.ve/reglamentos/categoria/regimen-de-estudios" target="_blank"><img alt="" src="pictures/reglamentos.jpg"></a></p>
+	    	<p><a href="http://www.dace.usb.ve/node/30"><img alt="" src="pictures/ayud_mejorar.jpg"></a></p><p><a href="http://www.secretaria.usb.ve/" target="_blank"><img alt="" src="./pictures/secretaria.gif"></a></p>
+	    	<p><a href="http://www.secretaria.usb.ve/sites/default/files/documentos/proyectoaportesUSB.pdf" target="_blank"><img alt="" src="pictures/sticker_portal_aportes.jpg"></a></p>
+	    </div>
+	    
+	    <%-- 
 	    <div class="grid_1">
 	    	<p></p>
 	    	
@@ -31,6 +43,7 @@
 			<s:url id="url" action="logout"></s:url>
 			<s:a href="%{url}">Cerrar sesión</s:a>
 		</div>
+		--%>
 		
 		<div class="grid_2">
 			<p class="blue">En la siguiente tabla se muestra toda la infomación académica que ha suministrado al sistema</p>
@@ -136,11 +149,6 @@
 			
 			
 		</div>
-		
-		<div class="grid_2">
-		    <h5>Elija una opcion del menu a su izquierda. En esta sección usted podrá modificar su información académica
-		    almacenada en el sistema, o agregarla si es usuario nuevo.</h5>
-	    </div>
 
     </div>
 </body>
