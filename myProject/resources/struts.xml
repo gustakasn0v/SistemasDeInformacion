@@ -12,6 +12,7 @@
  
     <package name="default" extends="struts-default" namespace="/">
         <action name="login" class="net.excelsior.Authentication.LoginAction">
+        	<result name="input">Login.jsp</result>
             <result name="successProfessor">WelcomeAgregar.jsp</result>
             <result name="successDpto">WelcomeDpto.jsp</result>
             <result name="error">Login.jsp</result>

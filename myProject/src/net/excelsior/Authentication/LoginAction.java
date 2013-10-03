@@ -20,6 +20,12 @@ public class LoginAction extends ActionSupport {
 	private String username;
 	private String password;
 	
+	public void validate(){
+		if("".equals(this.getUsername())){
+			addActionError("El nombre de usuario no puede estar vacio");
+		}
+	}
+	
 	/**
 	 * M�todo: authenticate
 	 * Descripci�n: Obtiene al informaci�n de la base de datos para
