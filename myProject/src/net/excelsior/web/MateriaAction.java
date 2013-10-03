@@ -24,6 +24,11 @@ public class MateriaAction extends ActionSupport implements ModelDriven<Materia>
 	private List<Materia> materiaList = new ArrayList<Materia>();
 	private MateriaDAO materiaDAO = new MateriaDAOImpl();
 	
+//	public void validate(){
+//		if (this.materia.getCodigo().length()>6){
+//			addActionError(getText("El código de la materia debe tener el formato correcto"));
+//		}
+//	}
 	
 	public Materia getModel() {
 		return materia;
