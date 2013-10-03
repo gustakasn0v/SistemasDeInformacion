@@ -21,6 +21,32 @@ public class AuthDatabase extends ActionSupport {
 			getText("database.password"));
 	
 	/**
+	 * Busca el nombre de un usuario en la base de datos
+	 * Este m�todo siempre retorna.
+	 * 
+	 * @param	user	Nombre del usuario a buscar 
+	 * @return			String con el nombre completo del usuario
+	 *
+	 */
+	public String getFullName(String user) {
+		if (!this.userExists(user)) return null;
+		if (!this.db.initializeConnection()) return null;
+		String sqlquery = "select NOMBRE from usuario where nombre_usuario= '" + user + "';";
+		ResultSet rs = this.db.executeCommand(sqlquery);
+		try{
+			this.db.closeConnection();
+			rs.next();
+			String nombre = rs.getString("nombre");
+			System.out.println(nombre);
+			return nombre;
+		}
+		catch(SQLException e){
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	/**
 	 * Determina si un usuario existe en la base de datos
 	 * Este m�todo siempre retorna.
 	 * 

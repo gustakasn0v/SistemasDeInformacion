@@ -41,27 +41,23 @@ public class LoginAction extends ActionSupport {
 		String usuarioPrevio = (String)session.get("username");
 		if (usuarioPrevio != null){
 			this.setUsername(usuarioPrevio);
-			if (this.data.isProfessor(this.username)){
-				session.put("username",username);
-				return "successProfessor";
-			} else {
-				return "successDpto";
-			}
-		}
-		
-		if (this.data.checkPassword(this.username,this.password)){
-			// Por ahora solo coloco los dos casos relevantes en un futuro hay que poner mas
-			if (this.data.isProfessor(this.username)){
-				session.put("username",username);
-				return "successProfessor";
-			} else {
-				return "successDpto";
-			}
 		}
 		else{
-			addActionError(getText("error.login"));
-			return "error";
-		}		
+			if (!this.data.checkPassword(this.username,this.password)){
+				addActionError(getText("error.login"));
+				return "error";
+			}		
+		}
+		// Por ahora solo coloco los dos casos relevantes en un futuro hay que poner mas
+		System.out.println(this.username);
+		if (this.data.isProfessor(this.username)){
+			session.put("username",username);
+			session.put("nombre", this.data.getFullName(username));
+			return "successProfessor";
+		}
+		else {
+			return "successDpto";
+		}
 		
 	}
 	
