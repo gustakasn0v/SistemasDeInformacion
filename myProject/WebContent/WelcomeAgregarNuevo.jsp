@@ -9,7 +9,7 @@
 <body>
 
 <div class="container_3">
-	<div class="grid_3"><div class="banner"></div><div class="blue_bar">Bienvenido, <%= session.getAttribute( "username" ) %> </div></div>
+	<div class="grid_3"><div class="banner"></div><div class="blue_bar">Bienvenido, <%= session.getAttribute( "username" ) %> <s:url id="url" action="logout"></s:url><s:a href="%{url}">Cerrar sesión</s:a></div></div>
 		<div class="grid_4">
 	    	<p><img alt="" src="pictures/somosusb.gif"></p>
 	    	<p><a href="https://documentosdace.dii.usb.ve/documentosdace/" target="_blank"><img alt="" src="pictures/taquilla.jpg"></a></p>
