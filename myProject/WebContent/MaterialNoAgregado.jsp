@@ -23,7 +23,10 @@
 			
 			<s:url id="url" action="listMaterialApoyo"></s:url>
 			<s:a href="%{url}">Mostrar/Modificar material de apoyo</s:a><br/><br/>
-			
+
+			<s:url id="url" action="listMateria"></s:url>
+			<s:a href="%{url}">Mostrar/Modificar materias modificadas</s:a><br/><br/>
+						
 			<s:url id="url" action="logout"></s:url>
 			<s:a href="%{url}">Cerrar sesión</s:a>
 		</div>
