@@ -131,8 +131,8 @@
 		</div>
 		</div>	
 		</div>
-		<div class="grid_4">
-			<div class="right">
+		<div class="push_4">
+			<div class="grid_4">
 	    	<p><img alt="" src="pictures/somosusb.gif"></p>
 	    	<p><a href="https://documentosdace.dii.usb.ve/documentosdace/" target="_blank"><img alt="" src="pictures/taquilla.jpg"></a></p>
 	    	<p><a href="http://www.dace.usb.ve/sites/default/files/pdf/aranceles.pdf" target="_blank"><img alt="" src="pictures/aranceles.jpg"></a></p>

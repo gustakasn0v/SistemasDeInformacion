@@ -27,10 +27,11 @@ body {
 
 .container_3 .grid_4 {
 	width:150px;
+	margin:10px 0px;
 }
 
 .container_3 .grid_5 {
-	width:750px
+	width:780px
 }
 .container_3 .grid_2 {
 	width:620px;
@@ -72,7 +73,7 @@ body {
 }
 
 p {
-	text-align:center;
+	text-align:justify;
 }
 table.tabla{
 	border-spacing: 0px 5px;
@@ -90,7 +91,7 @@ th.tabla {
 	border-bottom: 2px solid #111111;
 	border-top: 1px solid #999;
 	text-align: left;
-	width:65px;
+	width:40px;
 }
 
 th.grande {
@@ -100,7 +101,7 @@ th.grande {
 	border-bottom: 2px solid #111111;
 	border-top: 1px solid #999;
 	text-align: left;
-	width:200px;
+	width:150px;
 
 }
 
@@ -156,3 +157,7 @@ h6 {
     font-family: sans-serif;
 }
 
+.container_3 .push_4 {
+	padding-left:700px;
+	left:700px;
+}
