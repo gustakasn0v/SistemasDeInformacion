@@ -26,7 +26,7 @@ public class MateriaAction extends ActionSupport implements ModelDriven<Materia>
 	
 //	public void validate(){
 //		if (this.materia.getCodigo().length()>6){
-//			addActionError(getText("El código de la materia debe tener el formato correcto"));
+//			addActionError(getText("El cï¿½digo de la materia debe tener el formato correcto"));
 //		}
 //	}
 	
@@ -79,6 +79,11 @@ public class MateriaAction extends ActionSupport implements ModelDriven<Materia>
 	{
 		HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
 		materia = materiaDAO.listMateriaById(Long.parseLong(request.getParameter("id")));
+		return SUCCESS;
+	}
+
+	public String Mod()
+	{
 		return SUCCESS;
 	}
 	

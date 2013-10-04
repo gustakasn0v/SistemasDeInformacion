@@ -76,10 +76,16 @@
 	</package>
 	
 	<package name="default4" extends="hibernate-default">
+		<action name="modMateria" method="Mod" class="net.excelsior.web.MateriaAction">
+		    <interceptor-ref name="basicStackHibernate" />
+			<result name="success">/agregarMateria.jsp</result>
+		</action>
+		
 		<action name="saveOrUpdateMateria" method="saveOrUpdate" class="net.excelsior.web.MateriaAction">
 			<result name="success" type="redirect">/MateriaAgregada.jsp</result>
 			<result name="input">/MateriaNoAgregada.jsp</result>
 		</action>
+		
 		<action name="listMateria" method="list" class="net.excelsior.web.MateriaAction">
 			<interceptor-ref name="basicStackHibernate" />
 			<result name="success">/gestionarMateria.jsp</result>
