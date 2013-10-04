@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
  
 
+
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,6 +16,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import org.hibernate.validator.Length;
+import org.hibernate.validator.NotEmpty;
  
 @Entity
 @Table(name="MATERIA")
@@ -24,9 +29,12 @@ public class Materia {
     @GeneratedValue
     private Long Id;
 	
+    @NotEmpty(message = "El código de la materia no puede estar vacío")
+    @Length(max=6,message="El código de la materia debe tener 6 dígitos")
     @Column(name="CODIGO_MATERIA")
     private String codigo;
-     
+    
+    @NotEmpty(message = "El nombre de la materia no puede estar vacío")
     @Column(name="NOMBRE_MATERIA")
     private String nombre;
     

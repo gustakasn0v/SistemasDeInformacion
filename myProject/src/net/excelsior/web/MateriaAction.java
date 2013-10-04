@@ -11,6 +11,7 @@ import net.excelsior.dao.MateriaDAOImpl;
 import net.excelsior.domain.Materia;
 
 import org.apache.struts2.ServletActionContext;
+import org.hibernate.validator.Valid;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -20,13 +21,17 @@ public class MateriaAction extends ActionSupport implements ModelDriven<Materia>
 
 	private static final long serialVersionUID = -6659925652584240539L;
 
+	@Valid
 	private Materia materia = new Materia();
 	private List<Materia> materiaList = new ArrayList<Materia>();
 	private MateriaDAO materiaDAO = new MateriaDAOImpl();
 	
 //	public void validate(){
 //		if (this.materia.getCodigo().length()>6){
-//			addActionError(getText("El cï¿½digo de la materia debe tener el formato correcto"));
+//			addActionError(getText("El código de la materia debe tener el formato correcto"));
+//		}
+//		else if (this.materia.getCodigo().length()==0 || this.materia.getNombre().length()==0){
+//			addActionError(getText("Todos los campos deben llenarse"));
 //		}
 //	}
 	

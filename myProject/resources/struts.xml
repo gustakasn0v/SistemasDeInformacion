@@ -82,8 +82,8 @@
 		</action>
 		
 		<action name="saveOrUpdateMateria" method="saveOrUpdate" class="net.excelsior.web.MateriaAction">
+			<result name="input">/agregarMateria.jsp</result>
 			<result name="success" type="redirect">/MateriaAgregada.jsp</result>
-			<result name="input">/MateriaNoAgregada.jsp</result>
 		</action>
 		
 		<action name="listMateria" method="list" class="net.excelsior.web.MateriaAction">
