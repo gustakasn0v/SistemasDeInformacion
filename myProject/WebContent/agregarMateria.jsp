@@ -33,11 +33,12 @@
 		<div class="grid_5">
 	<h3 class="blue">En esta sección, usted podrá agregar y editar las materias que ha dictado</h3>
 		<div class="center">
+			<s:actionerror />
 			<s:form action="saveOrUpdateMateria">
 				<s:push value="materia">
 					<s:hidden name='id'/>
-					<s:textfield name="codigo" label="Codigo" />
-					<s:textfield name="nombre" label="Nombre" />
+					<s:textfield key="materia.codigo" />
+					<s:textfield key="materia.nombre" />
 					<s:submit />
 				</s:push>
 			</s:form>
