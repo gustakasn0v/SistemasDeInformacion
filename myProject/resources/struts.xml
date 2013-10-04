@@ -48,14 +48,14 @@
 		</action>
 		<action name="deleteTitulo" method="delete" class="net.excelsior.web.TituloAction">
 		    <interceptor-ref name="basicStackHibernate" />
-			<result name="success" type="redirect">verPlanilla</result>
+			<result name="success" type="redirect">/InformacionEliminada.jsp</result>
 		</action>
 	</package>
 	
 	<package name="default3" extends="hibernate-default">
 		<action name="saveOrUpdateMaterialApoyo" method="saveOrUpdate" class="net.excelsior.web.MaterialApoyoAction">
-			<result name="input" type="redirect">/MaterialNoAgregado.jsp</result>
-			<result name="success" type="redirect">/MaterialAgregado.jsp</result>
+			<result name="input" type="redirect">/FormacionNoAgregada.jsp</result>
+			<result name="success" type="redirect">/FormacionAgregada.jsp</result>
 		</action>
 		<action name="modMaterial" method="Mod" class="net.excelsior.web.MaterialApoyoAction">
 		    <interceptor-ref name="basicStackHibernate" />
@@ -71,7 +71,7 @@
 		</action>
 		<action name="deleteMaterialApoyo" method="delete" class="net.excelsior.web.MaterialApoyoAction">
 			<interceptor-ref name="basicStackHibernate" />
-			<result name="success" type="redirect">verPlanilla</result>
+			<result name="success" type="redirect">/InformacionEliminada.jsp</result>
 		</action>
 	</package>
 	
@@ -82,8 +82,8 @@
 		</action>
 		
 		<action name="saveOrUpdateMateria" method="saveOrUpdate" class="net.excelsior.web.MateriaAction">
-			<result name="success" type="redirect">/MateriaAgregada.jsp</result>
-			<result name="input">/MateriaNoAgregada.jsp</result>
+			<result name="success" type="redirect">/FormacionAgregada.jsp</result>
+			<result name="input">/FormacionNoAgregada.jsp</result>
 		</action>
 		
 		<action name="listMateria" method="list" class="net.excelsior.web.MateriaAction">
@@ -92,11 +92,11 @@
 		</action>
 		<action name="editMateria" method="edit" class="net.excelsior.web.MateriaAction">
 			<interceptor-ref name="basicStackHibernate" />
-			<result name="success">/gestionarMateria.jsp</result>
+			<result name="success">/agregarMateria.jsp</result>
 		</action>
 		<action name="deleteMateria" method="delete" class="net.excelsior.web.MateriaAction">
 			<interceptor-ref name="basicStackHibernate" />
-			<result name="success" type="redirect">verPlanilla</result>
+			<result name="success" type="redirect">/InformacionEliminada.jsp</result>
 		</action>
 	</package>
     

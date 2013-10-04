@@ -35,17 +35,19 @@
 							<td class="tabla"><s:property value="tipoformacion" /></td>
 							<td class="tabla"><s:url id="editURL" action="editTitulo">
 								<s:param name="id" value="%{id}"></s:param>
-							</s:url> <s:a href="%{editURL}">Editar</s:a></td>
+							</s:url> <s:a href="%{editURL}">
+							<img src="pictures/editar.png" /></s:a></td>
 							<td class="tabla"><s:url id="deleteURL" action="deleteTitulo">
 								<s:param name="id" value="%{id}"></s:param>
-							</s:url> <s:a href="%{deleteURL}">Borrar</s:a></td>
+							</s:url> <s:a href="%{deleteURL}">
+							<img src="pictures/eliminar.jpg" /></s:a></td>
 						</tr>
 					</s:iterator>
 					<tfoot>
 					<tr>
 						<td colspan="5" class="tabla">
 							<s:url id="url" action="modTitulo"></s:url>
-							<s:a href="%{url}">Agregar títulos académicos</s:a><br/><br/>
+							<s:a href="%{url}">Agregar Título</s:a><br/><br/>
 						</td>
 					</tr>
 					</tfoot>
@@ -74,17 +76,17 @@
 						<td class="tabla"><s:property value="revisor" /></td>
 						<td class="tabla"> <s:url id="editURL" action="editMaterialApoyo">
 							<s:param name="id" value="%{id}"></s:param>
-						</s:url> <s:a href="%{editURL}">Editar</s:a></td>
+						</s:url> <s:a href="%{editURL}"><img src="pictures/editar.png" /></s:a></td>
 						<td class="tabla"><s:url id="deleteURL" action="deleteMaterialApoyo">
 							<s:param name="id" value="%{id}"></s:param>
-						</s:url> <s:a href="%{deleteURL}">Borrar</s:a></td>
+						</s:url> <s:a href="%{deleteURL}"><img src="pictures/eliminar.jpg" /></s:a></td>
 					</tr>
 				</s:iterator>
 					<tfoot>
 					<tr>
 						<td colspan="5" class="tabla">
 							<s:url id="url" action="modMaterial"></s:url>
-							<s:a href="%{url}">Agregar material de apoyo</s:a><br/><br/>
+							<s:a href="%{url}">Agregar Material de Apoyo</s:a><br/><br/>
 						</td>
 					</tr>
 					</tfoot>
@@ -111,17 +113,17 @@
 							<td class="tabla"><s:property value="nombre" /></td>
 							<td class="tabla"><s:url id="editURL" action="editMateria">
 								<s:param name="id" value="%{id}"></s:param>
-							</s:url> <s:a href="%{editURL}">Editar</s:a></td>
+							</s:url> <s:a href="%{editURL}"><img src="pictures/editar.png" /></s:a></td>
 							<td class="tabla"><s:url id="deleteURL" action="deleteMateria">
 								<s:param name="id" value="%{id}"></s:param>
-							</s:url> <s:a href="%{deleteURL}">Borrar</s:a></td>
+							</s:url> <s:a href="%{deleteURL}"><img src="pictures/eliminar.jpg" /></s:a></td>
 						</tr>
 					</s:iterator>
 					<tfoot>
 					<tr>
 						<td colspan="5" class="tabla">
 							<s:url id="url" action="modMateria"></s:url>
-							<s:a href="%{url}">Agregar materia</s:a><br/><br/>
+							<s:a href="%{url}">Agregar Materia</s:a><br/><br/>
 						</td>
 					</tr>
 					</tfoot>
