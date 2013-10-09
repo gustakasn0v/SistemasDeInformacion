@@ -33,7 +33,7 @@ public class Titulo {
 		this.id = id;
 	}
 	
-	@NotEmpty(message = "El nombre de la formacion no puede estar vacÌo")
+	@NotEmpty(message = "El nombre de la formacion no puede estar vac√≠o")
 	@Column(name="nombre_formacion")
 	public String getFormacion() {
 		return this.formacion;
@@ -50,7 +50,7 @@ public class Titulo {
 		this.nombreusuario = nu;
 	}
 	
-	@NotEmpty(message = "El nombre de la institucion no puede estar vacÌo")
+	@NotEmpty(message = "El nombre de la institucion no puede estar vac√≠o")
 	@Column(name="institucion")
 	public String getInstitucion() {
 		return institucion;
@@ -59,7 +59,7 @@ public class Titulo {
 		this.institucion = institucion;
 	}
 	
-	@NotEmpty(message = "El tipo de formacion no puede estar vacio")
+	@NotEmpty(message = "El tipo de formacion no puede estar vac√≠o")
 	@Column(name="tipo_formacion")
 	public String getTipoformacion() {
 		if (this.tipoformacion.equals("1")){

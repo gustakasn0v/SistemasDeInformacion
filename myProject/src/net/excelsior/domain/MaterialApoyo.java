@@ -26,15 +26,15 @@ public class MaterialApoyo {
     @GeneratedValue
     private Long Id;
 	
-    @NotEmpty(message = "El nombre del material no puede estar vacío")
+    @NotEmpty(message = "El nombre del material no puede estar vacÃ­o")
     @Column(name="TITULO_MATERIAL")
     private String titulo;
      
-    @NotEmpty(message = "El campo del archivo no puede estar vacío")
+    @NotEmpty(message = "El campo del archivo no puede estar vacÃ­o")
     @Column(name="ARCHIVO")
     private String archivo;
     
-    @NotEmpty(message = "El nombre del revisor no puede estar vacío")
+    @NotEmpty(message = "El nombre del revisor no puede estar vacÃ­o")
     @Column(name="REVISOR")
     private String revisor;
      

@@ -29,12 +29,12 @@ public class Materia {
     @GeneratedValue
     private Long Id;
 	
-    @NotEmpty(message = "El código de la materia no puede estar vacío")
-    @Length(max=6,message="El código de la materia debe tener 6 dígitos")
+    @NotEmpty(message = "El cÃ³digo de la materia no puede estar vacÃ­o")
+    @Length(max=6,message="El cÃ³digo de la materia debe tener 6 dÃ­gitos")
     @Column(name="CODIGO_MATERIA")
     private String codigo;
     
-    @NotEmpty(message = "El nombre de la materia no puede estar vacío")
+    @NotEmpty(message = "El nombre de la materia no puede estar vacÃ­o")
     @Column(name="NOMBRE_MATERIA")
     private String nombre;
     
