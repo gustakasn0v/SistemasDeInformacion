@@ -99,5 +99,12 @@
 			<result name="success" type="redirect">/InformacionEliminada.jsp</result>
 		</action>
 	</package>
+	
+	<package name="materiasDictadas" extends="hibernate-default">
+		<action name="listMateriaModificada" method="list" class="net.excelsior.web.MateriaModificadaAction">
+			<interceptor-ref name="basicStackHibernate" />
+			<result name="success">/gestionarMateriaModificada.jsp</result>
+		</action>
+	</package>
     
 </struts>

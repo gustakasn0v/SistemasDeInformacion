@@ -2,514 +2,317 @@
 -- Sistema de Evaluación de Profesores
 
 CREATE TABLE USUARIO (
-	nombre_usuario varchar (50) NOT NULL,
-	contrasenia varchar (20) NOT NULL,
-	nombre varchar (50) NOT NULL,
-	correo varchar (30) NOT NULL,
-	cedula bigint NOT NULL,
-	CONSTRAINT PK_USUARIO PRIMARY KEY (nombre_usuario)
-);
-
-
-CREATE TABLE DECANATO (
-	nombre_usuario varchar (50) NOT NULL,
-	nombre_decanato varchar (50) NOT NULL,
-	CONSTRAINT PK_DECANATO PRIMARY KEY (nombre_usuario)
-);
-
-CREATE TABLE COORDINACION (
-	nombre_coord varchar (50) NOT NULL UNIQUE,
-	nombre_usuario varchar (50) NOT NULL,
-	CONSTRAINT PK_COORDINACION PRIMARY KEY (nombre_usuario)
-);
-
-CREATE TABLE CARRERA (
-	nombre_usuario varchar (50) NOT NULL,
-	codigo integer NOT NULL,
-	nombre_carrera varchar (50) NOT NULL,
-	CONSTRAINT PK_CARRERA PRIMARY KEY (nombre_usuario, codigo)
-);
-
-CREATE TABLE PROFESOR (
-	nombre_usuario varchar (50) NOT NULL,
-	CONSTRAINT PK_PROFESOR PRIMARY KEY (nombre_usuario)
-);
-
-CREATE TABLE MATERIAL_APOYO (
-	material varchar (200) NOT NULL,
-	nombre_usuario varchar (50) NOT NULL,
-	CONSTRAINT PK_MATERIAL_APOYO PRIMARY KEY (nombre_usuario,material)
-);
-
-CREATE TABLE FORMACION (
-	formacion varchar (200) NOT NULL,
-	nombre_usuario varchar (50) NOT NULL,
-	CONSTRAINT PK_FORMACION PRIMARY KEY (formacion, nombre_usuario)
-);
-
-CREATE TABLE PROGRAMA(
-  programa varchar (200) NOT NULL,
-  nombre_usuario varchar (50) NOT NULL,
-  CONSTRAINT PK_PROGRAMAS PRIMARY KEY (programa, nombre_usuario)
-);
-
-CREATE TABLE DEPARTAMENTO (
-	nombre_dpto varchar (50) NOT NULL,
-	nombre_usuario varchar (50) NOT NULL UNIQUE,
-	CONSTRAINT PK_DEPARTAMENTO PRIMARY KEY (nombre_dpto)
+   nombre_usuario    varchar(20) NOT NULL,
+   contrasenia       varchar(20) NOT NULL,
+   nombre            varchar(20) NOT NULL,
+   CONSTRAINT PK_USUARIO PRIMARY KEY (nombre_usuario)
 );
 
 CREATE TABLE ADMINISTRADOR (
-	nombre_usuario varchar (50) NOT NULL,
-	CONSTRAINT PK_ADMINISTRADOR PRIMARY KEY (nombre_usuario)
+   nombre_usuario    varchar(20) NOT NULL,
+   CONSTRAINT PK_ADMINISTRADOR PRIMARY KEY (nombre_usuario)
+);
+
+CREATE TABLE DECANATO (
+   nombre_dcnto      varchar(50) NOT NULL,
+   CONSTRAINT PK_DECANATO PRIMARY KEY (nombre_dcnto)
+);
+
+CREATE TABLE DECANO (
+   nombre_usuario    varchar(20) NOT NULL,
+   nombre_dcnto      varchar(50) NOT NULL,
+   CONSTRAINT PK_DECANO PRIMARY KEY (nombre_usuario)
+);
+
+CREATE TABLE COORDINACION (
+   nombre_coord      varchar(50) NOT NULL,
+   CONSTRAINT PK_COORDINACION PRIMARY KEY (nombre_coord)
+);
+
+CREATE TABLE COORDINADOR (
+   nombre_usuario    varchar(20) NOT NULL,
+   nombre_coord      varchar(50) NOT NULL,
+   CONSTRAINT PK_COORDINADOR PRIMARY KEY (nombre_usuario)
+);
+
+CREATE TABLE DEPARTAMENTO (
+   nombre_dpto       varchar(50) NOT NULL,
+   CONSTRAINT PK_DEPARTAMENTO PRIMARY KEY (nombre_dpto)
+);
+
+CREATE TABLE JEFE_DPTO (
+   nombre_usuario    varchar(20) NOT NULL,
+   nombre_dpto       varchar(50) NOT NULL,
+   CONSTRAINT PK_JEFE_DPTO PRIMARY KEY (nombre_usuario)
+);
+
+CREATE TABLE PROFESOR (
+   nombre_usuario    varchar(20) NOT NULL,
+   nivel             varchar(20) NOT NULL,
+   CONSTRAINT PK_PROFESOR PRIMARY KEY (nombre_usuario)
+);
+
+CREATE TABLE CARRERA (
+   codigo_carrera    numeric     NOT NULL,
+   nombre_carrera    varchar(30) NOT NULL,
+   nombre_dcnto      varchar(50) NOT NULL,
+   nombre_coord      varchar(50) NOT NULL,
+   CONSTRAINT PK_CARRERA PRIMARY KEY (codigo_carrera)
+);
+
+CREATE TABLE MATERIA (
+   materia_id        bigint not null,
+   codigo_materia    varchar(6)  UNIQUE NOT NULL,
+   nombre_materia    varchar(30) NOT NULL,
+   CONSTRAINT PK_MATERIA PRIMARY KEY (materia_id)
+);
+
+CREATE TABLE MATERIAL_APOYO (
+   material_id       bigint,
+   titulo_material   varchar(100) NOT NULL,
+   revisor           varchar(30)  NOT NULL,
+--   archivo
+   CONSTRAINT PK_MATERIAL_APOYO PRIMARY KEY (material_id)
 );
 
 CREATE TABLE SOLICITUD (
-	clave integer NOT NULL,
-	estado varchar (20) NOT NULL,
-	periodo varchar (20) NOT NULL,
-	nombre_usuario_prof varchar (50) NOT NULL,
-	nombre_usuario_dpto varchar (50) NOT NULL,
-	codigo_eval integer,
-	fecha_envio date NOT NULL,
-	CONSTRAINT PK_SOLICITUD PRIMARY KEY (clave)
+   codigo_solicitud     varchar(10) NOT NULL,
+   periodo              date        NOT NULL,
+   jubilacion           boolean     NOT NULL,
+   nombre_usuario_prof  varchar(20) NOT NULL,
+   nombre_usuario_jefe  varchar(20) NOT NULL,
+   fecha_envio          date        NOT NULL,
+   CONSTRAINT PK_SOLICITUD PRIMARY KEY (codigo_solicitud)
 );
 
 CREATE TABLE EVALUACION (
-	codigo integer NOT NULL,
-	resultado varchar (20) NOT NULL,
-	queja varchar (100),
-	nombre_coord varchar (50),
-	fecha_emision date NOT NULL,
-	CONSTRAINT PK_EVALUACION PRIMARY KEY (codigo)
+   codigo_eval             varchar(10)  NOT NULL,
+   queja                   varchar(100) NOT NULL,
+   resultado               varchar(20)  NOT NULL,
+   codigo_solicitud        varchar(10)  NOT NULL,
+   nombre_usuario_coord    varchar(20)  NOT NULL,
+   fecha_emision           date         NOT NULL,
+   CONSTRAINT PK_EVALUACION PRIMARY KEY (codigo_eval)
 );
 
 CREATE TABLE TUTORIA (
-	codigo_eval integer NOT NULL,
-	tutoria varchar (200),
-	CONSTRAINT PK_TUTORIA PRIMARY KEY (codigo_eval,tutoria)
+   titulo_tutoria       varchar(50)    NOT NULL,
+   fecha_inic           date           NOT NULL,
+   fecha_fin            date           NOT NULL,
+   codigo_carrera       NUMERIC        NOT NULL,
+   nombre_usuario_prof  varchar(20)    NOT NULL,
+   CONSTRAINT PK_TUTORIA PRIMARY KEY (titulo_tutoria)
 );
 
-CREATE TABLE REPORTE (
-	codigo_eval integer NOT NULL,
-	trimestre varchar (20) NOT NULL,
-	cod_materia varchar(6) NOT NULL,
-	nombre_materia varchar (30) NOT NULL,
-	cant_nota_1 integer NOT NULL,
-	cant_nota_2 integer NOT NULL,
-	cant_nota_3 integer NOT NULL,
-	cant_nota_4 integer NOT NULL,
-	cant_nota_5 integer NOT NULL,
-	CONSTRAINT PK_REPORTE PRIMARY KEY (codigo_eval, trimestre, nombre_materia)
+CREATE TABLE CURSO_COOP (
+   titulo_tutoria       varchar(50)    NOT NULL,
+   nombre_estudiante    varchar(30)    NOT NULL,
+   duracion             varchar(5)     NOT NULL,
+   CONSTRAINT PK_CURSO_COOP PRIMARY KEY (titulo_tutoria)
+);
+
+CREATE TABLE PROYECTO_GRADO (
+   titulo_tutoria       varchar(50)    NOT NULL,
+   CONSTRAINT PK_PROYECTO_GRADO PRIMARY KEY (titulo_tutoria)
+);
+
+CREATE TABLE ESTUDIANTE (
+   titulo_tutoria       varchar(50)    NOT NULL,
+   nombre_estudiante    varchar(30)    NOT NULL,
+   CONSTRAINT PK_ESTUDIANTE PRIMARY KEY (titulo_tutoria, nombre_estudiante)
+);
+
+CREATE TABLE FORMACION (
+   nombre_usuario_prof  varchar(20)    NOT NULL,
+   nombre_formacion     varchar(50)    NOT NULL,
+   fecha_formacion      date           NOT NULL,
+   institucion          varchar(50)    NOT NULL,
+   tipo_formacion       varchar(6)     NOT NULL,
+   CONSTRAINT PK_FORMACION PRIMARY KEY (nombre_usuario_prof, nombre_formacion)
+);
+
+CREATE TABLE ACTIV_ACADEM_ADMIN (
+   nombre_usuario_prof  varchar(20)    NOT NULL,
+   cargo                varchar(20)    NOT NULL,
+   fecha_inic           date           NOT NULL,
+   fecha_fin            date           NOT NULL,
+   CONSTRAINT PK_ACTIV_ACADEM_ADMIN PRIMARY KEY (nombre_usuario_prof, cargo, 
+         fecha_inic)
+);
+
+CREATE TABLE OTRA_ACTIVIDAD (
+   nombre_usuario_prof  varchar(10)    NOT NULL,
+   nombre_actividad     varchar(30)    NOT NULL,
+   fecha_inic           date           NOT NULL,
+   fecha_fin            date           NOT NULL,
+   CONSTRAINT PK_OTRA_ACTIVDAD PRIMARY KEY (nombre_usuario_prof, 
+         nombre_actividad)
 );
 
 CREATE TABLE REVISA (
-	nombre_usuario varchar (30) NOT NULL,
-	codigo_eval integer NOT NULL,
-	CONSTRAINT PK_REVISA PRIMARY KEY (nombre_usuario, codigo_eval)
+   nombre_usuario_decano   varchar(20) NOT NULL,
+   codigo_eval             varchar(10) NOT NULL,
+   CONSTRAINT PK_REVISA PRIMARY KEY (codigo_eval)
 );
 
-CREATE TABLE ATIENDE (
-    nombre_usuario varchar (50) NOT NULL,
-    clave integer NOT NULL,
-    fecha_limite date NOT NULL,
-    CONSTRAINT PK_ATIENDE PRIMARY KEY(nombre_usuario, clave)
+CREATE TABLE COMPUESTA_POR (
+   codigo_carrera    numeric     NOT NULL,
+   materia_id    bigint  NOT NULL,
+   CONSTRAINT PK_COMPUESTA_POR PRIMARY KEY (codigo_carrera, materia_id)
 );
 
--- Claves foraneas y restricciones de dominio---------------
-ALTER TABLE DECANATO ADD
-	CONSTRAINT FK_DECANATO_USUARIO FOREIGN KEY (nombre_usuario) REFERENCES USUARIO (nombre_usuario);
-
-ALTER TABLE COORDINACION ADD
-	CONSTRAINT FK_COORDINACION_USUARIO FOREIGN KEY (nombre_usuario) REFERENCES USUARIO (nombre_usuario);
-
-ALTER TABLE CARRERA ADD
-	CONSTRAINT FK_CARRERA_COORDINACION FOREIGN KEY (nombre_usuario) REFERENCES COORDINACION (nombre_usuario);
-
-ALTER TABLE CARRERA ADD
-	CONSTRAINT RANGO_CODIGO_CARRERA CHECK (codigo > 0);
-
-ALTER TABLE PROFESOR ADD
-	CONSTRAINT FK_PROFESOR_USUARIO FOREIGN KEY (nombre_usuario) REFERENCES USUARIO (nombre_usuario);
-
-ALTER TABLE FORMACION ADD
-	CONSTRAINT FK_FORMACION_PROFESOR FOREIGN KEY (nombre_usuario) REFERENCES PROFESOR (nombre_usuario);
-
-ALTER TABLE PROGRAMA ADD
-	CONSTRAINT FK_PROGRAMAS_PROFESOR FOREIGN KEY (nombre_usuario) REFERENCES PROFESOR (nombre_usuario);
-
-ALTER TABLE MATERIAL_APOYO ADD
-	CONSTRAINT FK_MATERIAL_APOYO_PROFESOR FOREIGN KEY (nombre_usuario) REFERENCES PROFESOR (nombre_usuario);
-
-ALTER TABLE DEPARTAMENTO ADD
-	CONSTRAINT FK_DEPARTAMENTO_USUARIO FOREIGN KEY (nombre_usuario) REFERENCES USUARIO (nombre_usuario);
-
-ALTER TABLE ADMINISTRADOR ADD
-	CONSTRAINT FK_ADMINISTRADOR_USUARIO FOREIGN KEY (nombre_usuario) REFERENCES USUARIO (nombre_usuario);
-
-ALTER TABLE SOLICITUD ADD
-	CONSTRAINT FK_SOLICITUD_PROFESOR FOREIGN KEY (nombre_usuario_prof) REFERENCES PROFESOR (nombre_usuario);
-
-ALTER TABLE SOLICITUD ADD
-	CONSTRAINT FK_SOLICITUD_EVALUACION FOREIGN KEY (codigo_eval) REFERENCES EVALUACION (codigo);
-
-ALTER TABLE SOLICITUD ADD
-	CONSTRAINT FK_SOLICITUD_DEPARTAMENTO FOREIGN KEY (nombre_usuario_dpto) REFERENCES DEPARTAMENTO (nombre_usuario);
-
-ALTER TABLE SOLICITUD ADD
-	CONSTRAINT RANGO_CLAVE_SOLICITUD CHECK (clave > 0);
-
-ALTER TABLE SOLICITUD ADD 
-	CONSTRAINT RANGO_ESTADO_SOLICITUD CHECK (estado IN ('POR ATENDER', 'ATENDIDA'));
-
-ALTER TABLE EVALUACION ADD
-	CONSTRAINT RANGO_CODIGO_EVALUACION CHECK (codigo > 0);
-
-ALTER TABLE EVALUACION ADD 
-	CONSTRAINT RANGO_RESULTADO_EVALUACION CHECK (resultado IN ('MUY SATISFACTORIA', 'SATISFACTORIA', 'SOBRESALIENTE', 'INSUFICIENTE'));
-
-ALTER TABLE EVALUACION ADD
-	CONSTRAINT FK_EVALUACION_COORDINACION FOREIGN KEY (nombre_coord) REFERENCES COORDINACION (nombre_usuario);
-
-ALTER TABLE TUTORIA ADD
-	CONSTRAINT FK_TUTORIA_EVALUACION FOREIGN KEY (codigo_eval) REFERENCES EVALUACION (codigo);
-
-ALTER TABLE REPORTE ADD
-	CONSTRAINT RANGO_CANT_NOTA_1 CHECK (cant_nota_1 >= 0);
-
-ALTER TABLE REPORTE ADD
-	CONSTRAINT RANGO_CANT_NOTA_2 CHECK (cant_nota_2 >= 0);
-
-ALTER TABLE REPORTE ADD
-	CONSTRAINT RANGO_CANT_NOTA_3 CHECK (cant_nota_3 >= 0);
-
-ALTER TABLE REPORTE ADD
-	CONSTRAINT RANGO_CANT_NOTA_4 CHECK (cant_nota_4 >= 0);
-
-ALTER TABLE REPORTE ADD
-	CONSTRAINT RANGO_CANT_NOTA_5 CHECK (cant_nota_5 >= 0);
-
-ALTER TABLE REPORTE ADD
-	CONSTRAINT FK_REPORTE_EVALUACION FOREIGN KEY (codigo_eval) REFERENCES EVALUACION (codigo);
-
-ALTER TABLE REPORTE ADD 
-	CONSTRAINT RANGO_TRIMESTRE_REPORTE CHECK (trimestre IN ('ENE-MAR', 'ABR-JUL', 'SEP-DIC', 'VERANO'));
-ALTER TABLE REVISA ADD
-	CONSTRAINT FK_REVISA_EVALUACION FOREIGN KEY (codigo_eval) REFERENCES EVALUACION (codigo);
-
-ALTER TABLE REVISA ADD
-    CONSTRAINT FK_REVISA_DECANATO FOREIGN KEY (nombre_usuario) REFERENCES DECANATO (nombre_usuario);
-
-ALTER TABLE ATIENDE ADD
-    CONSTRAINT FK_ATIENDE_COORDINACION FOREIGN KEY (nombre_usuario) REFERENCES COORDINACION (nombre_usuario);
-
-ALTER TABLE ATIENDE ADD
-    CONSTRAINT FK_ATIENDE_SOLICITUD FOREIGN KEY (clave) REFERENCES SOLICITUD (clave);
-
-
-
--- Triggers
-
-CREATE OR REPLACE FUNCTION func_verificarClaveDecanato() RETURNS TRIGGER
-AS $func_verificarClaveDecanato$
-
-DECLARE
-    
-    nombre VARCHAR (50) DEFAULT NULL;        
-
-BEGIN
-
-    SELECT nombre_usuario INTO nombre FROM COORDINACION C 
-    WHERE C.nombre_usuario = NEW.nombre_usuario;
-
-    IF nombre IS NOT NULL THEN
-
-        RAISE EXCEPTION 'La clave de decanato ya existe en otro usuario.';
-        RETURN NULL;
-
-    END IF;
-
-    SELECT nombre_usuario INTO nombre FROM PROFESOR P 
-    WHERE P.nombre_usuario = NEW.nombre_usuario;
-
-    IF nombre IS NOT NULL THEN
-
-        RAISE EXCEPTION 'La clave de decanato ya existe en otro usuario.';
-        RETURN NULL;
-
-    END IF;
-
-
-    SELECT nombre_usuario INTO nombre FROM ADMINISTRADOR A 
-    WHERE A.nombre_usuario = NEW.nombre_usuario;
-
-    IF nombre IS NOT NULL THEN
-
-        RAISE EXCEPTION 'La clave de decanato ya existe en otro usuario.';
-        RETURN NULL;
-
-    END IF;
-
-    SELECT nombre_usuario INTO nombre FROM DEPARTAMENTO D 
-    WHERE D.nombre_usuario = NEW.nombre_usuario;
-
-    IF nombre IS NOT NULL THEN
-
-        RAISE EXCEPTION 'La clave de decanato ya existe en otro usuario.';
-        RETURN NULL;
-
-    END IF;
-
-	RETURN NEW;
-
-END;
-$func_verificarClaveDecanato$ LANGUAGE plpgsql;
-
-CREATE TRIGGER trig_verificarClaveDecanato 
-BEFORE INSERT ON DECANATO
-FOR EACH ROW
-EXECUTE PROCEDURE func_verificarClaveDecanato();
-
-
-
-CREATE OR REPLACE FUNCTION func_verificarClaveCoordinacion() RETURNS TRIGGER
-AS $func_verificarClaveCoordinacion$
-
-DECLARE
-    
-    nombre VARCHAR (50) DEFAULT NULL;        
-
-BEGIN
-
-    SELECT nombre_usuario INTO nombre FROM DECANATO D 
-    WHERE D.nombre_usuario = NEW.nombre_usuario;
-
-    IF nombre IS NOT NULL THEN
-
-        RAISE EXCEPTION 'La clave de coordinacion ya existe en otro usuario.';
-        RETURN NULL;
-
-    END IF;
-
-    SELECT nombre_usuario INTO nombre FROM PROFESOR P 
-    WHERE P.nombre_usuario = NEW.nombre_usuario;
-
-    IF nombre IS NOT NULL THEN
-
-        RAISE EXCEPTION 'La clave de coordinacion ya existe en otro usuario.';
-        RETURN NULL;
-
-    END IF;
-
-
-    SELECT nombre_usuario INTO nombre FROM ADMINISTRADOR A 
-    WHERE A.nombre_usuario = NEW.nombre_usuario;
-
-    IF nombre IS NOT NULL THEN
-
-        RAISE EXCEPTION 'La clave de coordinacion ya existe en otro usuario.';
-        RETURN NULL;
-
-    END IF;
-
-    SELECT nombre_usuario INTO nombre FROM DEPARTAMENTO D 
-    WHERE D.nombre_usuario = NEW.nombre_usuario;
-
-    IF nombre IS NOT NULL THEN
-
-        RAISE EXCEPTION 'La clave de coordinacion ya existe en otro usuario.';
-        RETURN NULL;
-
-    END IF;
-
-	RETURN NEW;
-
-END;
-$func_verificarClaveCoordinacion$ LANGUAGE plpgsql;
-
-CREATE TRIGGER trig_verificarClaveCoordinacion 
-BEFORE INSERT ON COORDINACION
-FOR EACH ROW
-EXECUTE PROCEDURE func_verificarClaveCoordinacion();
-
-
-CREATE OR REPLACE FUNCTION func_verificarClaveProfesor() RETURNS TRIGGER
-AS $func_verificarClaveProfesor$
-
-DECLARE
-    
-    nombre VARCHAR (50) DEFAULT NULL;        
-
-BEGIN
-
-    SELECT nombre_usuario INTO nombre FROM DECANATO D 
-    WHERE D.nombre_usuario = NEW.nombre_usuario;
-
-    IF nombre IS NOT NULL THEN
-
-        RAISE EXCEPTION 'La clave de profesor ya existe en otro usuario.';
-        RETURN NULL;
-
-    END IF;
-
-    SELECT nombre_usuario INTO nombre FROM COORDINACION C 
-    WHERE C.nombre_usuario = NEW.nombre_usuario;
-
-    IF nombre IS NOT NULL THEN
-
-        RAISE EXCEPTION 'La clave de profesor ya existe en otro usuario.';
-        RETURN NULL;
-
-    END IF;
-
-
-    SELECT nombre_usuario INTO nombre FROM ADMINISTRADOR A 
-    WHERE A.nombre_usuario = NEW.nombre_usuario;
-
-    IF nombre IS NOT NULL THEN
-
-        RAISE EXCEPTION 'La clave de profesor ya existe en otro usuario.';
-        RETURN NULL;
-
-    END IF;
-
-    SELECT nombre_usuario INTO nombre FROM DEPARTAMENTO D 
-    WHERE D.nombre_usuario = NEW.nombre_usuario;
-
-    IF nombre IS NOT NULL THEN
-
-        RAISE EXCEPTION 'La clave de profesor ya existe en otro usuario.';
-        RETURN NULL;
-
-    END IF;
-
-	RETURN NEW;
-
-END;
-$func_verificarClaveProfesor$ LANGUAGE plpgsql;
-
-CREATE TRIGGER trig_verificarClaveProfesor
-BEFORE INSERT ON PROFESOR
-FOR EACH ROW
-EXECUTE PROCEDURE func_verificarClaveProfesor();
-
-
-CREATE OR REPLACE FUNCTION func_verificarClaveDepartamento() RETURNS TRIGGER
-AS $func_verificarClaveDepartamento$
-
-DECLARE
-    
-    nombre VARCHAR (50) DEFAULT NULL;        
-
-BEGIN
-
-    SELECT nombre_usuario INTO nombre FROM DECANATO D 
-    WHERE D.nombre_usuario = NEW.nombre_usuario;
-
-    IF nombre IS NOT NULL THEN
-
-        RAISE EXCEPTION 'La clave de departamento ya existe en otro usuario.';
-        RETURN NULL;
-
-    END IF;
-
-    SELECT nombre_usuario INTO nombre FROM COORDINACION C 
-    WHERE C.nombre_usuario = NEW.nombre_usuario;
-
-    IF nombre IS NOT NULL THEN
-
-        RAISE EXCEPTION 'La clave de departamento ya existe en otro usuario.';
-        RETURN NULL;
-
-    END IF;
-
-
-    SELECT nombre_usuario INTO nombre FROM ADMINISTRADOR A 
-    WHERE A.nombre_usuario = NEW.nombre_usuario;
-
-    IF nombre IS NOT NULL THEN
-
-        RAISE EXCEPTION 'La clave de departamento ya existe en otro usuario.';
-        RETURN NULL;
-
-    END IF;
-
-    SELECT nombre_usuario INTO nombre FROM PROFESOR P 
-    WHERE P.nombre_usuario = NEW.nombre_usuario;
-
-    IF nombre IS NOT NULL THEN
-
-        RAISE EXCEPTION 'La clave de departamento ya existe en otro usuario.';
-        RETURN NULL;
-
-    END IF;
-
-	RETURN NEW;
-
-END;
-$func_verificarClaveDepartamento$ LANGUAGE plpgsql;
-
-CREATE TRIGGER trig_verificarClaveDepartamento
-BEFORE INSERT ON DEPARTAMENTO
-FOR EACH ROW
-EXECUTE PROCEDURE func_verificarClaveDepartamento();
-
-CREATE OR REPLACE FUNCTION func_verificarClaveAdministrador() RETURNS TRIGGER
-AS $func_verificarClaveAdministrador$
-
-DECLARE
-    
-    nombre VARCHAR (50) DEFAULT NULL;        
-
-BEGIN
-
-    SELECT nombre_usuario INTO nombre FROM DECANATO D 
-    WHERE D.nombre_usuario = NEW.nombre_usuario;
-
-    IF nombre IS NOT NULL THEN
-
-        RAISE EXCEPTION 'La clave de administrador ya existe en otro usuario.';
-        RETURN NULL;
-
-    END IF;
-
-    SELECT nombre_usuario INTO nombre FROM COORDINACION C 
-    WHERE C.nombre_usuario = NEW.nombre_usuario;
-
-    IF nombre IS NOT NULL THEN
-
-        RAISE EXCEPTION 'La clave de administrador ya existe en otro usuario.';
-        RETURN NULL;
-
-    END IF;
-
-
-    SELECT nombre_usuario INTO nombre FROM DEPARTAMENTO D 
-    WHERE D.nombre_usuario = NEW.nombre_usuario;
-
-    IF nombre IS NOT NULL THEN
-
-        RAISE EXCEPTION 'La clave de administrador ya existe en otro usuario.';
-        RETURN NULL;
-
-    END IF;
-
-    SELECT nombre_usuario INTO nombre FROM PROFESOR P 
-    WHERE P.nombre_usuario = NEW.nombre_usuario;
-
-    IF nombre IS NOT NULL THEN
-
-        RAISE EXCEPTION 'La clave de administrador ya existe en otro usuario.';
-        RETURN NULL;
-
-    END IF;
-
-	RETURN NEW;
-
-END;
-$func_verificarClaveAdministrador$ LANGUAGE plpgsql;
-
-CREATE TRIGGER trig_verificarClaveAdministrador
-BEFORE INSERT ON ADMINISTRADOR
-FOR EACH ROW
-EXECUTE PROCEDURE func_verificarClaveAdministrador();
+CREATE TABLE MODIFICA (
+   nombre_usuario_prof  varchar(20) NOT NULL,
+   materia_id       bigint  NOT NULL,
+   CONSTRAINT PK_MODIFICA PRIMARY KEY (nombre_usuario_prof, materia_id)
+);
+
+CREATE TABLE UTILIZADO_POR (
+   material_id       bigint         NOT NULL,
+   materia_id        bigint     NOT NULL,
+   CONSTRAINT PK_UTILIZADO_POR PRIMARY KEY (material_id, materia_id)
+);
+
+CREATE TABLE REALIZADO_POR (
+   material_id          bigint         NOT NULL,
+   nombre_usuario_prof  varchar(20)    NOT NULL,
+   CONSTRAINT PK_REALIZADO_POR PRIMARY KEY (material_id, 
+         nombre_usuario_prof)
+);
+
+CREATE TABLE DICTA (
+   materia_id   bigint         NOT NULL,
+   nombre_usuario_prof  varchar(20)    NOT NULL,
+   trimestre            varchar(10)    NOT NULL,
+   cant_nota_1          integer        NOT NULL,
+   cant_nota_2          integer        NOT NULL,
+   cant_nota_3          integer        NOT NULL,
+   cant_nota_4          integer        NOT NULL,
+   cant_nota_5          integer        NOT NULL,
+   cant_retirados       integer        NOT NULL,
+   CONSTRAINT PK_DICTA PRIMARY KEY (nombre_usuario_prof, materia_id,
+         trimestre)
+);
+
+ALTER TABLE ADMINISTRADOR 
+   ADD CONSTRAINT FK_ADMINISTRADOR_USUARIO FOREIGN KEY (nombre_usuario) 
+      REFERENCES USUARIO (nombre_usuario);
+
+ALTER TABLE DECANO
+   ADD CONSTRAINT FK_DECANO_USUARIO FOREIGN KEY (nombre_usuario)
+      REFERENCES USUARIO (nombre_usuario),
+   ADD CONSTRAINT FK_DECANO_DECANATO FOREIGN KEY (nombre_dcnto)
+      REFERENCES DECANATO (nombre_dcnto);
+
+ALTER TABLE COORDINADOR
+   ADD CONSTRAINT FK_COORDINADOR_USUARIO FOREIGN KEY (nombre_usuario)
+      REFERENCES USUARIO (nombre_usuario),
+   ADD CONSTRAINT FK_COORDINADOR_COORDINACION FOREIGN KEY (nombre_coord)
+      REFERENCES COORDINACION (nombre_coord);
+
+ALTER TABLE JEFE_DPTO 
+   ADD CONSTRAINT FK_JEFE_DPTO_USUARIO FOREIGN KEY(nombre_usuario)
+      REFERENCES USUARIO (nombre_usuario),
+   ADD CONSTRAINT FK_JEFE_DPTO_DEPARTAMENTO FOREIGN KEY(nombre_dpto)
+      REFERENCES DEPARTAMENTO (nombre_dpto);
+
+ALTER TABLE PROFESOR
+   ADD CONSTRAINT FK_PROFESOR_USUARIO FOREIGN KEY(nombre_usuario)
+      REFERENCES USUARIO (nombre_usuario);
+
+ALTER TABLE CARRERA
+   ADD CONSTRAINT FK_CARRERA_DECANATO FOREIGN KEY(nombre_dcnto)
+      REFERENCES DECANATO (nombre_dcnto),
+   ADD CONSTRAINT FK_CARRERA_CARRERA FOREIGN KEY(nombre_coord)
+      REFERENCES COORDINACION (nombre_coord),
+   ADD CONSTRAINT DOM_CODIGO_CARRERA CHECK (codigo_carrera > 0);
+
+-- ALTER TABLE MATERIA ADD CONSTRAINT FK_MATERIA_DEPARTAMENTO FOREIGN KEY(nombre_dpto)REFERENCES DEPARTAMENTO (nombre_dpto);
+
+ALTER TABLE SOLICITUD
+   ADD CONSTRAINT FK_SOLICITUD_PROFESOR FOREIGN KEY(nombre_usuario_prof)
+      REFERENCES PROFESOR (nombre_usuario),
+   ADD CONSTRAINT FK_SOLICITUD_JEFE_DPTO FOREIGN KEY(nombre_usuario_jefe)
+      REFERENCES JEFE_DPTO (nombre_usuario);
+
+ALTER TABLE EVALUACION
+   ADD CONSTRAINT FK_EVALUACION_SOLICITUD FOREIGN KEY(codigo_solicitud)
+      REFERENCES SOLICITUD (codigo_solicitud),
+   ADD CONSTRAINT FK_EVALUACION_COORDINADOR FOREIGN KEY(nombre_usuario_coord)
+      REFERENCES COORDINADOR (nombre_usuario);
+
+ALTER TABLE TUTORIA
+   ADD CONSTRAINT FK_TUTORIA_CARRERA FOREIGN KEY(codigo_carrera)
+      REFERENCES CARRERA (codigo_carrera),
+   ADD CONSTRAINT FK_TUTORIA_PROFESOR FOREIGN KEY(nombre_usuario_prof)
+      REFERENCES PROFESOR (nombre_usuario),
+   ADD CONSTRAINT TUTORIA_FECHAS CHECK (fecha_inic < fecha_fin);
+
+ALTER TABLE CURSO_COOP 
+   ADD CONSTRAINT FK_CURSO_COOP_TUTORIA FOREIGN KEY(titulo_tutoria)
+      REFERENCES TUTORIA (titulo_tutoria);
+
+ALTER TABLE PROYECTO_GRADO 
+   ADD CONSTRAINT FK_PROYECTO_GRADO_TUTORIA FOREIGN KEY(titulo_tutoria)
+      REFERENCES TUTORIA (titulo_tutoria);
+
+ALTER TABLE ESTUDIANTE
+   ADD CONSTRAINT FK_ESTUDIANTE_PROYECTO_GRADO FOREIGN KEY(titulo_tutoria)
+      REFERENCES PROYECTO_GRADO (titulo_tutoria);
+
+ALTER TABLE FORMACION
+   ADD CONSTRAINT FK_FORMACION_PROFESOR FOREIGN KEY(nombre_usuario_prof)
+      REFERENCES PROFESOR (nombre_usuario);
+
+ALTER TABLE ACTIV_ACADEM_ADMIN
+   ADD CONSTRAINT FK_ACTIV_ACADEM_ADMIN FOREIGN KEY(nombre_usuario_prof)
+      REFERENCES PROFESOR (nombre_usuario),
+   ADD CONSTRAINT ACTIV_ACADEM_ADMIN_FECHAS CHECK (fecha_inic < fecha_fin);
+
+ALTER TABLE OTRA_ACTIVIDAD
+   ADD CONSTRAINT FK_OTRA_ACTIVIDAD_PROFESOR FOREIGN KEY(nombre_usuario_prof)
+      REFERENCES PROFESOR (nombre_usuario),
+   ADD CONSTRAINT OTRA_ACTIVIDAD_FECHAS CHECK (fecha_inic < fecha_fin);
+
+ALTER TABLE REVISA 
+   ADD CONSTRAINT FK_REVISA_DECANO FOREIGN KEY(nombre_usuario_decano)
+      REFERENCES DECANO (nombre_usuario),
+   ADD CONSTRAINT FK_REVISA_EVALUACION FOREIGN KEY(codigo_eval)
+      REFERENCES EVALUACION (codigo_eval);
+
+ALTER TABLE COMPUESTA_POR 
+   ADD CONSTRAINT FK_COMPUESTA_POR_CARRERA FOREIGN KEY(codigo_carrera)
+      REFERENCES CARRERA (codigo_carrera),
+   ADD CONSTRAINT FK_COMPUESTA_POR_MATERIA FOREIGN KEY(materia_id)
+      REFERENCES MATERIA (materia_id);
+
+ALTER TABLE MODIFICA
+   ADD CONSTRAINT FK_MODIFICA_PROFESOR FOREIGN KEY(nombre_usuario_prof)
+      REFERENCES PROFESOR (nombre_usuario);
+
+ALTER TABLE MODIFICA 
+   ADD CONSTRAINT FK_MODIFICA_MATERIA FOREIGN KEY(materia_id) REFERENCES MATERIA (materia_id);
+
+ALTER TABLE UTILIZADO_POR
+   ADD CONSTRAINT FK_UTILIZADO_POR_MATERIAL_APOYO FOREIGN KEY(material_id)
+      REFERENCES MATERIAL_APOYO (material_id),
+   ADD CONSTRAINT FK_UTILIZADO_POR_MATERIA FOREIGN KEY(materia_id)
+      REFERENCES MATERIA (materia_id);
+
+ALTER TABLE REALIZADO_POR
+   ADD CONSTRAINT FK_REALIZADO_POR_MATERIAL_APOYO FOREIGN KEY(material_id)
+      REFERENCES MATERIAL_APOYO (material_id),
+   ADD CONSTRAINT FK_REALIZADO_PROFESOR FOREIGN KEY(nombre_usuario_prof)
+      REFERENCES PROFESOR (nombre_usuario);
+
+ALTER TABLE DICTA
+   ADD CONSTRAINT FK_DICTA_PROFESOR FOREIGN KEY(nombre_usuario_prof)
+      REFERENCES PROFESOR (nombre_usuario),
+   ADD CONSTRAINT FK_DICTA_MATERIA FOREIGN KEY(materia_id)
+      REFERENCES MATERIA (materia_id),
+   ADD CONSTRAINT DOM_DICTA_CANT_NOTA_1 CHECK (cant_nota_1 >= 0),
+   ADD CONSTRAINT DOM_DICTA_CANT_NOTA_2 CHECK (cant_nota_2 >= 0),
+   ADD CONSTRAINT DOM_DICTA_CANT_NOTA_3 CHECK (cant_nota_3 >= 0),
+   ADD CONSTRAINT DOM_DICTA_CANT_NOTA_4 CHECK (cant_nota_4 >= 0),
+   ADD CONSTRAINT DOM_DICTA_CANT_NOTA_5 CHECK (cant_nota_5 >= 0),
+   ADD CONSTRAINT DOM_DICTA_CANT_RETIRADOS CHECK (cant_retirados >= 0);

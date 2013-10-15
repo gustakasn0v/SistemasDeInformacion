@@ -130,6 +130,40 @@
 				</table>
 				</div>
 			</s:if>
+			
+			<h1>Materias dictadas</h1>
+			<p>En la siguiente tabla se muestran todas los materias dictadas provenientes de DACE</p>
+			<div class="center600">
+			<s:if test="materiaDictadaList.size() >=0">
+				<div class="content">
+				<table class="tabla">
+					<tr class="even">
+						<th class="grande">Codigo</th>
+						<th class="grande">Trimestre</th>
+						<th class="tabla">1</th>
+						<th class="tabla">2</th>
+						<th class="tabla">3</th>
+						<th class="tabla">4</th>
+						<th class="tabla">5</th>
+						<th class="tabla">Retirados</th>
+					</tr>
+					<s:iterator value="materiaDictadaList" status="materiaDictadaStatus">
+						<tr
+							class="<s:if test="#materiaDictadaStatus.odd == true ">odd</s:if><s:else>even</s:else>">
+							<td class="tabla"><s:property value="codigoMateria" /></td>
+							<td class="tabla"><s:property value="trimestre" /></td>
+							<td class="tabla"><s:property value="cantidadUnos" /></td>
+							<td class="tabla"><s:property value="cantidadDos" /></td>
+							<td class="tabla"><s:property value="cantidadTres" /></td>
+							<td class="tabla"><s:property value="cantidadCuatros" /></td>
+							<td class="tabla"><s:property value="cantidadCincos" /></td>
+							<td class="tabla"><s:property value="cantidadRetirados" /></td>
+						</tr>
+					</s:iterator>
+				</table>
+				</div>
+			</s:if>
+			
 		</div>
 		</div>	
 		</div>

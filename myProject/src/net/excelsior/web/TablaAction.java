@@ -1,12 +1,15 @@
 package net.excelsior.web;
 
 
+import net.excelsior.dao.MateriaDictadaDAO;
+import net.excelsior.dao.MateriaDictadaDAOImpl;
 import net.excelsior.dao.MateriaModificadaDAO;
 import net.excelsior.dao.MateriaModificadaDAOImpl;
 import net.excelsior.dao.MaterialApoyoDAO;
 import net.excelsior.dao.MaterialApoyoDAOImpl;
 import net.excelsior.dao.TituloDAO;
 import net.excelsior.dao.TituloDAOImpl;
+import net.excelsior.domain.MateriaDictada;
 import net.excelsior.domain.MateriaModificada;
 import net.excelsior.domain.MaterialApoyo;
 import net.excelsior.domain.Titulo;
@@ -43,23 +46,10 @@ public class TablaAction extends ActionSupport {
 	private List<MaterialApoyo> materialApoyoList = new ArrayList<MaterialApoyo>();
 	private MaterialApoyoDAO materialApoyoDAO = new MaterialApoyoDAOImpl();
 	
+	private MateriaDictada materiaDictada = new MateriaDictada();
+	private List<MateriaDictada> materiaDictadaList = new ArrayList<MateriaDictada>();
+	private MateriaDictadaDAO materiaDictadaDAO = new MateriaDictadaDAOImpl();
 	
-//	public Materia getModel() {
-//		return materia;
-//	}
-	
-	
-	/**
-	 * To save or update user.
-	 * @return String
-	 */
-//	public String saveOrUpdate()
-//	{	
-//		Map<String, Object> session = ActionContext.getContext().getSession();
-//		String username = (String) session.get("username");
-//		materiaDAO.saveOrUpdateMateria(materia,username);
-//		return SUCCESS;
-//	}
 	
 	/**
 	 * To list all users.
@@ -70,34 +60,13 @@ public class TablaAction extends ActionSupport {
 		Map<String, Object> session = ActionContext.getContext().getSession();
 		String username = (String) session.get("username");
 		
-		materiaModificadaList = materiaModificadaDAO.listMateriaModificada(username);
+		setMateriaModificadaList(materiaModificadaDAO.listMateriaModificada(username));
 		setMaterialApoyoList(materialApoyoDAO.listMaterialApoyo(username));
 		setTituloList(tituloDAO.listTitulo(username));
+		setMateriaDictadaList(materiaDictadaDAO.listMateriaDictada(username));
 		return SUCCESS;
 	}
 	
-	/**
-	 * To delete a user.
-	 * @return String
-	 */
-//	public String delete()
-//	{
-//		HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
-//		System.out.println(request.getParameter("id"));
-//		materiaDAO.deleteMateria(Long.parseLong(request.getParameter("id")));
-//		return SUCCESS;
-//	}
-	
-	/**
-	 * To list a single user by Id.
-	 * @return String
-	 */
-//	public String edit()
-//	{
-//		HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
-//		materia = materiaDAO.listMateriaById(Long.parseLong(request.getParameter("id")));
-//		return SUCCESS;
-//	}
 	
 	public MateriaModificada getMateriaModificada() {
 		return materiaModificada;
@@ -145,6 +114,22 @@ public class TablaAction extends ActionSupport {
 
 	public void setMaterialApoyoList(List<MaterialApoyo> materialApoyoList) {
 		this.materialApoyoList = materialApoyoList;
+	}
+	
+	public MateriaDictada getMateriaDictada() {
+		return materiaDictada;
+	}
+
+	public void setMateriaDictada(MateriaDictada MateriaDictada) {
+		this.materiaDictada = MateriaDictada;
+	}
+
+	public List<MateriaDictada> getMateriaDictadaList() {
+		return materiaDictadaList;
+	}
+
+	public void setMateriaDictadaList(List<MateriaDictada> MateriaDictadaList) {
+		this.materiaDictadaList = MateriaDictadaList;
 	}
 
 }
