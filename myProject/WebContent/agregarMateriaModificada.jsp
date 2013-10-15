@@ -31,14 +31,14 @@
 			<s:a href="%{url}">Cerrar sesión</s:a>
 		</div> --%>
 		<div class="grid_5">
-	<h3 class="blue">En esta sección, usted podrá agregar y editar las materias que ha dictado</h3>
+	<h3 class="blue">En esta sección, usted podrá agregar y editar las materias que ha modificado</h3>
 		<div class="center">
 			<s:actionerror />
-			<s:form action="saveOrUpdateMateria">
-				<s:push value="materia">
+			<s:form action="saveOrUpdateMateriaModificada">
+				<s:push value="materiaModificada">
 					<s:hidden name='id'/>
-					<s:textfield key="materia.codigo" />
-					<s:textfield key="materia.nombre" />
+					<s:textfield key="materiaModificada.codigo" />
+					<s:textfield key="materiaModificada.nombre" />
 					<s:submit />
 				</s:push>
 			</s:form>

@@ -76,25 +76,25 @@
 	</package>
 	
 	<package name="default4" extends="hibernate-default">
-		<action name="modMateria" method="Mod" class="net.excelsior.web.MateriaAction">
+		<action name="modMateriaModificada" method="Mod" class="net.excelsior.web.MateriaModificadaAction">
 		    <interceptor-ref name="basicStackHibernate" />
-			<result name="success">/agregarMateria.jsp</result>
+			<result name="success">/agregarMateriaModificada.jsp</result>
 		</action>
 		
-		<action name="saveOrUpdateMateria" method="saveOrUpdate" class="net.excelsior.web.MateriaAction">
+		<action name="saveOrUpdateMateriaModificada" method="saveOrUpdate" class="net.excelsior.web.MateriaModificadaAction">
 			<result name="success" type="redirect">/FormacionAgregada.jsp</result>
-			<result name="input">/agregarMateria.jsp</result>
+			<result name="input">/agregarMateriaModificada.jsp</result>
 		</action>
 		
-		<action name="listMateria" method="list" class="net.excelsior.web.MateriaAction">
+		<action name="listMateriaModificada" method="list" class="net.excelsior.web.MateriaModificadaAction">
 			<interceptor-ref name="basicStackHibernate" />
-			<result name="success">/gestionarMateria.jsp</result>
+			<result name="success">/gestionarMateriaModificada.jsp</result>
 		</action>
-		<action name="editMateria" method="edit" class="net.excelsior.web.MateriaAction">
+		<action name="editMateriaModificada" method="edit" class="net.excelsior.web.MateriaModificadaAction">
 			<interceptor-ref name="basicStackHibernate" />
-			<result name="success">/agregarMateria.jsp</result>
+			<result name="success">/agregarMateriaModificada.jsp</result>
 		</action>
-		<action name="deleteMateria" method="delete" class="net.excelsior.web.MateriaAction">
+		<action name="deleteMateriaModificada" method="delete" class="net.excelsior.web.MateriaModificadaAction">
 			<interceptor-ref name="basicStackHibernate" />
 			<result name="success" type="redirect">/InformacionEliminada.jsp</result>
 		</action>

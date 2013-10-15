@@ -97,7 +97,7 @@
 			<h1>Materias modificadas</h1>
 			<p>En la siguiente tabla se muestran todas los materias que ha suministrado al sistema</p>
 			<div class="center600">
-			<s:if test="materiaList.size() >=0">
+			<s:if test="materiaModificadaList.size() >=0">
 				<div class="content">
 				<table class="tabla">
 					<tr class="even">
@@ -106,15 +106,15 @@
 						<th class="tabla">Editar</th>
 						<th class="tabla">Borrar</th>
 					</tr>
-					<s:iterator value="materiaList" status="materiaStatus">
+					<s:iterator value="materiaModificadaList" status="materiaModificadaStatus">
 						<tr
-							class="<s:if test="#materiaStatus.odd == true ">odd</s:if><s:else>even</s:else>">
+							class="<s:if test="#materiaModificadaStatus.odd == true ">odd</s:if><s:else>even</s:else>">
 							<td class="tabla"><s:property value="codigo" /></td>
 							<td class="tabla"><s:property value="nombre" /></td>
-							<td class="tabla"><s:url id="editURL" action="editMateria">
+							<td class="tabla"><s:url id="editURL" action="editMateriaModificada">
 								<s:param name="id" value="%{id}"></s:param>
 							</s:url> <s:a href="%{editURL}"><img src="pictures/editar.png" /></s:a></td>
-							<td class="tabla"><s:url id="deleteURL" action="deleteMateria">
+							<td class="tabla"><s:url id="deleteURL" action="deleteMateriaModificada">
 								<s:param name="id" value="%{id}"></s:param>
 							</s:url> <s:a href="%{deleteURL}"><img src="pictures/eliminar.jpg" /></s:a></td>
 						</tr>
@@ -122,7 +122,7 @@
 					<tfoot>
 					<tr>
 						<td colspan="5" class="tabla">
-							<s:url id="url" action="modMateria"></s:url>
+							<s:url id="url" action="modMateriaModificada"></s:url>
 							<s:a href="%{url}">Agregar Materia</s:a><br/><br/>
 						</td>
 					</tr>

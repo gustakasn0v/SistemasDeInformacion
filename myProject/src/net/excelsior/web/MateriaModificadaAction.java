@@ -6,9 +6,9 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import net.excelsior.dao.MateriaDAO;
-import net.excelsior.dao.MateriaDAOImpl;
-import net.excelsior.domain.Materia;
+import net.excelsior.dao.MateriaModificadaDAO;
+import net.excelsior.dao.MateriaModificadaDAOImpl;
+import net.excelsior.domain.MateriaModificada;
 
 import org.apache.struts2.ServletActionContext;
 import org.hibernate.validator.Valid;
@@ -17,26 +17,18 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-public class MateriaAction extends ActionSupport implements ModelDriven<Materia> {
+public class MateriaModificadaAction extends ActionSupport implements ModelDriven<MateriaModificada> {
 
 	private static final long serialVersionUID = -6659925652584240539L;
 
 	@Valid
-	private Materia materia = new Materia();
-	private List<Materia> materiaList = new ArrayList<Materia>();
-	private MateriaDAO materiaDAO = new MateriaDAOImpl();
+	private MateriaModificada materiaModificada = new MateriaModificada();
+	private List<MateriaModificada> materiaModificadaList = new ArrayList<MateriaModificada>();
+	private MateriaModificadaDAO materiaModificadaDAO = new MateriaModificadaDAOImpl();
 	
-//	public void validate(){
-//		if (this.materia.getCodigo().length()>6){
-//			addActionError(getText("El código de la materia debe tener el formato correcto"));
-//		}
-//		else if (this.materia.getCodigo().length()==0 || this.materia.getNombre().length()==0){
-//			addActionError(getText("Todos los campos deben llenarse"));
-//		}
-//	}
 	
-	public Materia getModel() {
-		return materia;
+	public MateriaModificada getModel() {
+		return materiaModificada;
 	}
 	
 	/**
@@ -47,7 +39,7 @@ public class MateriaAction extends ActionSupport implements ModelDriven<Materia>
 	{	
 		Map<String, Object> session = ActionContext.getContext().getSession();
 		String username = (String) session.get("username");
-		materiaDAO.saveOrUpdateMateria(materia,username);
+		materiaModificadaDAO.saveOrUpdateMateriaModificada(materiaModificada,username);
 		return SUCCESS;
 	}
 	
@@ -60,7 +52,7 @@ public class MateriaAction extends ActionSupport implements ModelDriven<Materia>
 		Map<String, Object> session = ActionContext.getContext().getSession();
 		String username = (String) session.get("username");
 		
-		materiaList = materiaDAO.listMateria(username);
+		materiaModificadaList = materiaModificadaDAO.listMateriaModificada(username);
 		return SUCCESS;
 	}
 	
@@ -72,7 +64,7 @@ public class MateriaAction extends ActionSupport implements ModelDriven<Materia>
 	{
 		HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
 		System.out.println(request.getParameter("id"));
-		materiaDAO.deleteMateria(Long.parseLong(request.getParameter("id")));
+		materiaModificadaDAO.deleteMateriaModificada(Long.parseLong(request.getParameter("id")));
 		return SUCCESS;
 	}
 	
@@ -83,7 +75,7 @@ public class MateriaAction extends ActionSupport implements ModelDriven<Materia>
 	public String edit()
 	{
 		HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
-		materia = materiaDAO.listMateriaById(Long.parseLong(request.getParameter("id")));
+		materiaModificada = materiaModificadaDAO.listMateriaModificadaById(Long.parseLong(request.getParameter("id")));
 		return SUCCESS;
 	}
 
@@ -92,20 +84,20 @@ public class MateriaAction extends ActionSupport implements ModelDriven<Materia>
 		return SUCCESS;
 	}
 	
-	public Materia getMateria() {
-		return materia;
+	public MateriaModificada getMateriaModificada() {
+		return materiaModificada;
 	}
 
-	public void setMateria(Materia materia) {
-		this.materia = materia;
+	public void setMateriaModificada(MateriaModificada materiaModificada) {
+		this.materiaModificada = materiaModificada;
 	}
 
-	public List<Materia> getMateriaList() {
-		return materiaList;
+	public List<MateriaModificada> getMateriaModificadaList() {
+		return materiaModificadaList;
 	}
 
-	public void setMateriaList(List<Materia> materiaList) {
-		this.materiaList = materiaList;
+	public void setMateriaModificadaList(List<MateriaModificada> materiaModificadaList) {
+		this.materiaModificadaList = materiaModificadaList;
 	}
 
 }

@@ -1,13 +1,13 @@
 package net.excelsior.web;
 
 
-import net.excelsior.dao.MateriaDAO;
-import net.excelsior.dao.MateriaDAOImpl;
+import net.excelsior.dao.MateriaModificadaDAO;
+import net.excelsior.dao.MateriaModificadaDAOImpl;
 import net.excelsior.dao.MaterialApoyoDAO;
 import net.excelsior.dao.MaterialApoyoDAOImpl;
 import net.excelsior.dao.TituloDAO;
 import net.excelsior.dao.TituloDAOImpl;
-import net.excelsior.domain.Materia;
+import net.excelsior.domain.MateriaModificada;
 import net.excelsior.domain.MaterialApoyo;
 import net.excelsior.domain.Titulo;
 
@@ -29,9 +29,9 @@ public class TablaAction extends ActionSupport {
 	private static final long serialVersionUID = -6659925652584240539L;
 	
 	@Valid
-	private Materia materia = new Materia();
-	private List<Materia> materiaList = new ArrayList<Materia>();
-	private MateriaDAO materiaDAO = new MateriaDAOImpl();
+	private MateriaModificada materiaModificada = new MateriaModificada();
+	private List<MateriaModificada> materiaModificadaList = new ArrayList<MateriaModificada>();
+	private MateriaModificadaDAO materiaModificadaDAO = new MateriaModificadaDAOImpl();
 	
 	@Valid
 	private Titulo titulo = new Titulo();
@@ -70,7 +70,7 @@ public class TablaAction extends ActionSupport {
 		Map<String, Object> session = ActionContext.getContext().getSession();
 		String username = (String) session.get("username");
 		
-		materiaList = materiaDAO.listMateria(username);
+		materiaModificadaList = materiaModificadaDAO.listMateriaModificada(username);
 		setMaterialApoyoList(materialApoyoDAO.listMaterialApoyo(username));
 		setTituloList(tituloDAO.listTitulo(username));
 		return SUCCESS;
@@ -99,20 +99,20 @@ public class TablaAction extends ActionSupport {
 //		return SUCCESS;
 //	}
 	
-	public Materia getMateria() {
-		return materia;
+	public MateriaModificada getMateriaModificada() {
+		return materiaModificada;
 	}
 
-	public void setMateria(Materia materia) {
-		this.materia = materia;
+	public void setMateriaModificada(MateriaModificada materiaModificada) {
+		this.materiaModificada = materiaModificada;
 	}
 
-	public List<Materia> getMateriaList() {
-		return materiaList;
+	public List<MateriaModificada> getMateriaModificadaList() {
+		return materiaModificadaList;
 	}
 
-	public void setMateriaList(List<Materia> materiaList) {
-		this.materiaList = materiaList;
+	public void setMateriaModificadaList(List<MateriaModificada> materiaModificadaList) {
+		this.materiaModificadaList = materiaModificadaList;
 	}
 
 	public Titulo getTitulo() {

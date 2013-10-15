@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Set;
 
 import net.excelsior.domain.Profesor;
-import net.excelsior.domain.Materia;
+import net.excelsior.domain.MateriaModificada;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -16,7 +16,7 @@ import com.googlecode.s2hibernate.struts2.plugin.annotations.SessionTarget;
 import com.googlecode.s2hibernate.struts2.plugin.annotations.TransactionTarget;
 import com.opensymphony.xwork2.ActionContext;
 
-public class MateriaDAOImpl implements MateriaDAO {
+public class MateriaModificadaDAOImpl implements MateriaModificadaDAO {
 	
 	@SessionTarget
 	Session session;
@@ -27,10 +27,10 @@ public class MateriaDAOImpl implements MateriaDAO {
 	/**
 	 * Used to save or update a user.
 	 */
-	public void saveOrUpdateMateria(Materia materia,String username) {
+	public void saveOrUpdateMateriaModificada(MateriaModificada materiaModificada,String username) {
 		try {
-			materia.profesores.add(new Profesor(username));
-			session.saveOrUpdate(materia);
+			materiaModificada.profesores.add(new Profesor(username));
+			session.saveOrUpdate(materiaModificada);
 		} catch (Exception e) {
 			transaction.rollback();
 			e.printStackTrace();
@@ -41,10 +41,10 @@ public class MateriaDAOImpl implements MateriaDAO {
 	 * Used to delete a user.
 	 */
 	
-	public void deleteMateria(Long materiaId) {
+	public void deleteMateriaModificada(Long materiaModificadaId) {
 		try {
-			Materia materia = (Materia) session.get(Materia.class, materiaId);
-			session.delete(materia);
+			MateriaModificada materiaModificada = (MateriaModificada) session.get(MateriaModificada.class, materiaModificadaId);
+			session.delete(materiaModificada);
 		} catch (Exception e) {
 			transaction.rollback();
 			e.printStackTrace();
@@ -56,15 +56,15 @@ public class MateriaDAOImpl implements MateriaDAO {
 	 */
 	@SuppressWarnings("unchecked")
 	
-	public List<Materia> listMateria(String username) {
+	public List<MateriaModificada> listMateriaModificada(String username) {
 		Profesor testProfessor = new Profesor(username);
-		List<Materia> materia = null;
-		ArrayList<Materia> listaFinal = new ArrayList<Materia>();
+		List<MateriaModificada> materiaModificada = null;
+		ArrayList<MateriaModificada> listaFinal = new ArrayList<MateriaModificada>();
 		try {
-			materia = session.createQuery("from Materia").list();
-			Iterator<Materia> iter = materia.iterator();
+			materiaModificada = session.createQuery("from MateriaModificada").list();
+			Iterator<MateriaModificada> iter = materiaModificada.iterator();
 			while (iter.hasNext()){
-				Materia checkedMateria = iter.next();
+				MateriaModificada checkedMateria = iter.next();
 				Object profs[] = checkedMateria.profesores.toArray();
 				int i;
 				for(i=0;i<profs.length;i++){
@@ -85,14 +85,14 @@ public class MateriaDAOImpl implements MateriaDAO {
 	 * Used to list a single user by Id.
 	 */
 	
-	public Materia listMateriaById(Long materiaId) {
-		Materia materia = null;
+	public MateriaModificada listMateriaModificadaById(Long materiaModificadaId) {
+		MateriaModificada materiaModificada = null;
 		try {
-			materia = (Materia) session.get(Materia.class, materiaId);
+			materiaModificada = (MateriaModificada) session.get(MateriaModificada.class, materiaModificadaId);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return materia;
+		return materiaModificada;
 	}
 
 }

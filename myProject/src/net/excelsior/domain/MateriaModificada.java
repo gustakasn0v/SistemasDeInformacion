@@ -6,7 +6,6 @@ import java.util.Set;
 
 
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -22,7 +21,7 @@ import org.hibernate.validator.NotEmpty;
  
 @Entity
 @Table(name="MATERIA")
-public class Materia {
+public class MateriaModificada {
      
     @Id
     @Column(name="MATERIA_ID")
