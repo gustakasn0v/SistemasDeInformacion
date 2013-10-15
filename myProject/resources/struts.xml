@@ -29,7 +29,7 @@
         </action>
     </package>
     
-    <package name="default2" extends="hibernate-default" >
+    <package name="titulosAcademicos" extends="hibernate-default" >
 		<action name="saveOrUpdateTitulo" method="saveOrUpdate" class="net.excelsior.web.TituloAction">
 			<result name="input" >/agregarFormacion.jsp</result>
 			<result name="success" type="redirect">/FormacionAgregada.jsp</result>
@@ -52,7 +52,7 @@
 		</action>
 	</package>
 	
-	<package name="default3" extends="hibernate-default">
+	<package name="materialApoyo" extends="hibernate-default">
 		<action name="saveOrUpdateMaterialApoyo" method="saveOrUpdate" class="net.excelsior.web.MaterialApoyoAction">
 			<result name="input" >/AgregarMaterial.jsp</result>
 			<result name="success" type="redirect">/FormacionAgregada.jsp</result>
@@ -75,7 +75,7 @@
 		</action>
 	</package>
 	
-	<package name="default4" extends="hibernate-default">
+	<package name="materiasModificadas" extends="hibernate-default">
 		<action name="modMateriaModificada" method="Mod" class="net.excelsior.web.MateriaModificadaAction">
 		    <interceptor-ref name="basicStackHibernate" />
 			<result name="success">/agregarMateriaModificada.jsp</result>
