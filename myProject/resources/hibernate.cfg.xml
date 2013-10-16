@@ -18,5 +18,6 @@
   <mapping class="net.excelsior.domain.Profesor"/>
   <mapping class="net.excelsior.domain.MateriaModificada"/>
   <mapping class="net.excelsior.domain.MateriaDictada"/>
+  <mapping class="net.excelsior.domain.Tutoria"/>
  </session-factory>
 </hibernate-configuration>

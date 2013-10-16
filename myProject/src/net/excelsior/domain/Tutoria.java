@@ -1,5 +1,7 @@
 package net.excelsior.domain;
 
+import java.math.BigInteger;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,17 +14,13 @@ import org.hibernate.validator.NotEmpty;
 public class Tutoria {
 
 	@Id
-	@Column(name="TUTORIA_ID")
-	@GeneratedValue
-	private Long Id;
-	
 	@NotEmpty(message = "El título del material no puede estar vacío")
 	@Column(name="TITULO_TUTORIA")
 	private String titulo;
 		
 	//Aqui supongo falta algo que diga que apunta a carrera
 	@Column(name="CODIGO_CARRERA")
-	private Integer codigoCarrera;
+	private BigInteger codigoCarrera;
 	
 	@Column(name="NOMBRE_USUARIO_PROF")
 	private String nombreUsuario;
@@ -33,13 +31,6 @@ public class Tutoria {
 	@Column(name="NOMBRE_ESTUDIANTE")
 	private String nombreEstudiante;
 	
-	public Long getId(){
-		return Id;
-	}
-	
-	public void setId(Long tutoriaId){
-		this.Id = tutoriaId;
-	}
 	
 	public String getTitulo(){
 		return titulo;
@@ -49,11 +40,11 @@ public class Tutoria {
 		this.titulo = titulo;
 	}
 	
-	public Integer getCodigoCarrera(){
+	public BigInteger getCodigoCarrera(){
 		return this.codigoCarrera;
-	}
+	}	
 	
-	public void setCodigoCarrera(Integer codigo){
+	public void setCodigoCarrera(BigInteger codigo){
 		this.codigoCarrera = codigo;
 	}
 	
