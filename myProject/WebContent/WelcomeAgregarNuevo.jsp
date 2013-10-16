@@ -138,9 +138,9 @@
 				<div class="content">
 				<table class="tabla">
 					<tr class="even">
-						<th class="grande">Titulo</th>
-						<th class="grande">Tipo</th>
-						<th class="tabla">Nombre Estudiante</th>
+						<th class="grande">Codigo</th>
+             			<th class="grande">Trimestre</th>
+            			<th class="tabla">1</th> 
 						<th class="tabla">2</th>
 						<th class="tabla">3</th>
 						<th class="tabla">4</th>

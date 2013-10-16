@@ -70,7 +70,7 @@ public class TablaAction extends ActionSupport {
 		setMaterialApoyoList(materialApoyoDAO.listMaterialApoyo(username));
 		setTituloList(tituloDAO.listTitulo(username));
 		setMateriaDictadaList(materiaDictadaDAO.listMateriaDictada(username));
-		//setTutoriaList(tutoriaDAO.listTutoria(username));
+		setTutoriaList(tutoriaDAO.listTutoria(username));
 		return SUCCESS;
 	}
 	
