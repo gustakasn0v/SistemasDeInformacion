@@ -13,6 +13,9 @@ import net.excelsior.domain.MateriaDictada;
 import net.excelsior.domain.MateriaModificada;
 import net.excelsior.domain.MaterialApoyo;
 import net.excelsior.domain.Titulo;
+import net.excelsior.domain.Tutoria;
+import net.excelsior.dao.TutoriaDAO;
+import net.excelsior.dao.TutoriaDAOImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +53,9 @@ public class TablaAction extends ActionSupport {
 	private List<MateriaDictada> materiaDictadaList = new ArrayList<MateriaDictada>();
 	private MateriaDictadaDAO materiaDictadaDAO = new MateriaDictadaDAOImpl();
 	
+	private Tutoria tutoria = new Tutoria();
+	private List<Tutoria> tutoriaList = new ArrayList<Tutoria>();
+	private TutoriaDAO tutoriaDAO = new TutoriaDAOImpl();
 	
 	/**
 	 * To list all users.
@@ -64,6 +70,7 @@ public class TablaAction extends ActionSupport {
 		setMaterialApoyoList(materialApoyoDAO.listMaterialApoyo(username));
 		setTituloList(tituloDAO.listTitulo(username));
 		setMateriaDictadaList(materiaDictadaDAO.listMateriaDictada(username));
+		//setTutoriaList(tutoriaDAO.listTutoria(username));
 		return SUCCESS;
 	}
 	
@@ -130,6 +137,22 @@ public class TablaAction extends ActionSupport {
 
 	public void setMateriaDictadaList(List<MateriaDictada> MateriaDictadaList) {
 		this.materiaDictadaList = MateriaDictadaList;
+	}
+	
+	public Tutoria getTutoria(){
+		return tutoria;
+	}
+	
+	public void setTutoria(Tutoria tutoria){
+		this.tutoria = tutoria;
+	}
+	
+	public List<Tutoria> getTutoriaList(){
+		return tutoriaList;
+	}
+	
+	public void setTutoriaList(List<Tutoria> tutoriaList){
+		this.tutoriaList = tutoriaList;
 	}
 
 }

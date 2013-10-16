@@ -138,9 +138,9 @@
 				<div class="content">
 				<table class="tabla">
 					<tr class="even">
-						<th class="grande">Codigo</th>
-						<th class="grande">Trimestre</th>
-						<th class="tabla">1</th>
+						<th class="grande">Titulo</th>
+						<th class="grande">Tipo</th>
+						<th class="tabla">Nombre Estudiante</th>
 						<th class="tabla">2</th>
 						<th class="tabla">3</th>
 						<th class="tabla">4</th>
@@ -165,6 +165,32 @@
 			</s:if>
 			
 		</div>
+		
+		 	<h1>Tutorias</h1>
+			<p>En la siguiente tabla se muestran todas las tutorias provenientes de CCT</p>
+			<div class="center600">
+			<s:if test="tutoriaList.size() >=0">
+				<div class="content">
+				<table class="tabla">
+					<tr class="even">
+						<th class="grande">Título</th>
+						<th class="grande">Tipo</th>
+						<th class="tabla">Nombre Estudiante</th>
+					</tr>
+					<s:iterator value="tutoriaList" status="tutoriaStatus">
+						<tr
+							class="<s:if test="#tutoriaStatus.odd == true ">odd</s:if><s:else>even</s:else>">
+							<td class="tabla"><s:property value="titulo" /></td>
+							<td class="tabla"><s:property value="tipoTutoria" /></td>
+							<td class="tabla"><s:property value="nombreEstudiante" /></td>
+						</tr>
+					</s:iterator>
+				</table>
+				</div>
+			</s:if>
+			
+		</div>
+		
 		</div>	
 		</div>
 		<div class="push_4">
