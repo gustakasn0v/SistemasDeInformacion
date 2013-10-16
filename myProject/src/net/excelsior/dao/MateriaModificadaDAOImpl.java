@@ -8,6 +8,7 @@ import java.util.Set;
 
 import net.excelsior.domain.Profesor;
 import net.excelsior.domain.MateriaModificada;
+import net.excelsior.domain.Titulo;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -29,8 +30,10 @@ public class MateriaModificadaDAOImpl implements MateriaModificadaDAO {
 	 */
 	public void saveOrUpdateMateriaModificada(MateriaModificada materiaModificada,String username) {
 		try {
-			materiaModificada.profesores.add(new Profesor(username));
-			session.saveOrUpdate(materiaModificada);
+			List<MateriaModificada> materiaModificadaList = null;
+			materiaModificadaList = session.createQuery("from MateriaModificada where codigo = '"+materiaModificada.getCodigo()+"'").list();
+			MateriaModificada instanciaVieja = materiaModificadaList.get(0);
+			instanciaVieja.profesores.add(new Profesor(username));
 		} catch (Exception e) {
 			transaction.rollback();
 			e.printStackTrace();
@@ -41,10 +44,11 @@ public class MateriaModificadaDAOImpl implements MateriaModificadaDAO {
 	 * Used to delete a user.
 	 */
 	
-	public void deleteMateriaModificada(Long materiaModificadaId) {
+	public void deleteMateriaModificada(Long materiaModificadaId,String username) {
 		try {
-			MateriaModificada materiaModificada = (MateriaModificada) session.get(MateriaModificada.class, materiaModificadaId);
-			session.delete(materiaModificada);
+			MateriaModificada instanciaVieja =(MateriaModificada) session.get(MateriaModificada.class, materiaModificadaId);
+			List<Profesor> profesorList = session.createQuery("from Profesor where nombreUsuario = '"+username+"'").list();
+			instanciaVieja.profesores.remove(profesorList.get(0));
 		} catch (Exception e) {
 			transaction.rollback();
 			e.printStackTrace();

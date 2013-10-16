@@ -6,6 +6,8 @@ import java.util.Set;
 
 
 
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -38,8 +40,8 @@ public class MateriaModificada {
     private String nombre;
     
      
-    @ManyToMany(fetch = FetchType.LAZY)
-    //@ManyToMany(cascade = {CascadeType.ALL})
+    
+    @ManyToMany(fetch = FetchType.LAZY,cascade = {CascadeType.ALL})
     @JoinTable(name="MODIFICA", 
                 joinColumns={@JoinColumn(name="MATERIA_ID")}, 
                 inverseJoinColumns={@JoinColumn(name="NOMBRE_USUARIO_PROF")})
