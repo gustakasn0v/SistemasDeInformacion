@@ -38,7 +38,7 @@
 							</s:url> <s:a href="%{editURL}">
 							<img src="pictures/editar.png" /></s:a></td>
 							<td class="tabla"><s:url id="deleteURL" action="deleteTitulo">
-								<s:param name="id" value="%{id}"></s:param>
+								<s:param name="id" value="%{id}"></s:param>								
 							</s:url> <s:a href="%{deleteURL}">
 							<img src="pictures/eliminar.jpg" /></s:a></td>
 						</tr>

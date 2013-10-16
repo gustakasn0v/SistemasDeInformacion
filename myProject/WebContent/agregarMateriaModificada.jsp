@@ -38,7 +38,6 @@
 				<s:push value="materiaModificada">
 					<s:hidden name='id'/>
 					<s:textfield key="materiaModificada.codigo" />
-					<s:textfield key="materiaModificada.nombre" />
 					<s:submit />
 				</s:push>
 			</s:form>

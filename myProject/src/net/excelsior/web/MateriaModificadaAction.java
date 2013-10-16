@@ -62,9 +62,11 @@ public class MateriaModificadaAction extends ActionSupport implements ModelDrive
 	 */
 	public String delete()
 	{
+		Map<String, Object> session = ActionContext.getContext().getSession();
+		String username = (String) session.get("username");
+		
 		HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
-		System.out.println(request.getParameter("id"));
-		materiaModificadaDAO.deleteMateriaModificada(Long.parseLong(request.getParameter("id")));
+		materiaModificadaDAO.deleteMateriaModificada(Long.parseLong(request.getParameter("id")),username);
 		return SUCCESS;
 	}
 	
@@ -74,8 +76,12 @@ public class MateriaModificadaAction extends ActionSupport implements ModelDrive
 	 */
 	public String edit()
 	{
+		Map<String, Object> session = ActionContext.getContext().getSession();
+		String username = (String) session.get("username");
+		
 		HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
 		materiaModificada = materiaModificadaDAO.listMateriaModificadaById(Long.parseLong(request.getParameter("id")));
+		materiaModificadaDAO.deleteMateriaModificada(Long.parseLong(request.getParameter("id")),username);
 		return SUCCESS;
 	}
 
