@@ -130,6 +130,7 @@
 				</table>
 				</div>
 			</s:if>
+			</div>
 			
 			<h1>Materias dictadas</h1>
 			<p>En la siguiente tabla se muestran todas los materias dictadas provenientes de DACE</p>
