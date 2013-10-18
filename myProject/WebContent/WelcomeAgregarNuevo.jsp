@@ -191,7 +191,32 @@
 			</s:if>
 			
 		</div>
-		
+
+		 	<h1>Otras Actividades</h1>
+			<p>En la siguiente tabla se muestran otras actividades provenientes de SINAI</p>
+			<div class="center600">
+			<s:if test="otraActividadList.size() >=0">
+				<div class="content">
+				<table class="tabla">
+					<tr class="even">
+						<th class="grande">Nombre Actividad</th>
+<!-- 						<th class="grande">Fecha Inicio</th>
+						<th class="tabla">Fecha Fin</th> -->
+					</tr>
+					<s:iterator value="otraActividadList" status="otraActividadStatus">
+						<tr
+							class="<s:if test="#otraActividadStatus.odd == true ">odd</s:if><s:else>even</s:else>">
+							<td class="tabla"><s:property value="nombreActividad" /></td>
+<%-- 							<td class="tabla"><s:property value="fecha_inic" /></td>
+							<td class="tabla"><s:property value="fecha_fin" /></td>
+ --%>						</tr>
+					</s:iterator>
+				</table>
+				</div>
+			</s:if>
+			
+		</div>
+				
 		</div>	
 		</div>
 		<div class="push_4">

@@ -16,6 +16,10 @@ import net.excelsior.domain.Titulo;
 import net.excelsior.domain.Tutoria;
 import net.excelsior.dao.TutoriaDAO;
 import net.excelsior.dao.TutoriaDAOImpl;
+import net.excelsior.dao.OtraActividadDAO;
+import net.excelsior.dao.OtraActividadDAOImpl;
+import net.excelsior.domain.OtraActividad;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,6 +61,10 @@ public class TablaAction extends ActionSupport {
 	private List<Tutoria> tutoriaList = new ArrayList<Tutoria>();
 	private TutoriaDAO tutoriaDAO = new TutoriaDAOImpl();
 	
+	private OtraActividad otraActividad = new OtraActividad();
+	private List<OtraActividad> otraActividadList = new ArrayList<OtraActividad>();
+	private OtraActividadDAO otraActividadDAO = new OtraActividadDAOImpl();
+	
 	/**
 	 * To list all users.
 	 * @return String
@@ -71,6 +79,7 @@ public class TablaAction extends ActionSupport {
 		setTituloList(tituloDAO.listTitulo(username));
 		setMateriaDictadaList(materiaDictadaDAO.listMateriaDictada(username));
 		setTutoriaList(tutoriaDAO.listTutoria(username));
+		setOtraActividadList(otraActividadDAO.listOtraActividad(username));
 		return SUCCESS;
 	}
 	
@@ -155,4 +164,19 @@ public class TablaAction extends ActionSupport {
 		this.tutoriaList = tutoriaList;
 	}
 
+	public void setOtraActividadList(List<OtraActividad> otraActividadList){
+		this.otraActividadList = otraActividadList;
+	}
+	
+	public List<OtraActividad> getOtraActividadList(){
+		return otraActividadList;
+	}
+	
+	public OtraActividad getOtraActividad(){
+		return otraActividad;
+	}
+	
+	public void setOtraActividad(OtraActividad otraActividad){
+		this.otraActividad = otraActividad;
+	}
 }
