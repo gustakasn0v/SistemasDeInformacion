@@ -177,13 +177,17 @@
 						<th class="grande">Título</th>
 						<th class="grande">Tipo</th>
 						<th class="tabla">Nombre Estudiante</th>
+						<th class="tabla">Fecha Inicio</th>
+						<th class="tabla">Fecha Fin</th>
 					</tr>
 					<s:iterator value="tutoriaList" status="tutoriaStatus">
 						<tr
 							class="<s:if test="#tutoriaStatus.odd == true ">odd</s:if><s:else>even</s:else>">
-							<td class="tabla"><s:property value="titulo" /></td>
-							<td class="tabla"><s:property value="tipoTutoria" /></td>
-							<td class="tabla"><s:property value="nombreEstudiante" /></td>
+							<td class="grande"><s:property value="titulo" /></td>
+							<td class="grande"><s:property value="tipoTutoria" /></td>
+							<td class="grande"><s:property value="nombreEstudiante" /></td>
+							<td class="tabla"><s:date name="fechaInic" format="dd/MM/yyyy"/></td>
+							<td class="tabla"><s:date name="fechaFin" format="dd/MM/yyyy"/></td>
 						</tr>
 					</s:iterator>
 				</table>
@@ -200,16 +204,16 @@
 				<table class="tabla">
 					<tr class="even">
 						<th class="grande">Nombre Actividad</th>
-<!-- 						<th class="grande">Fecha Inicio</th>
-						<th class="tabla">Fecha Fin</th> -->
+						<th class="grande">Fecha Inicio</th>
+						<th class="tabla">Fecha Fin</th>
 					</tr>
 					<s:iterator value="otraActividadList" status="otraActividadStatus">
 						<tr
 							class="<s:if test="#otraActividadStatus.odd == true ">odd</s:if><s:else>even</s:else>">
 							<td class="tabla"><s:property value="nombreActividad" /></td>
-<%-- 							<td class="tabla"><s:property value="fecha_inic" /></td>
-							<td class="tabla"><s:property value="fecha_fin" /></td>
- --%>						</tr>
+							<td class="tabla"><s:date name="fechaInic" format="dd/MM/yyyy"/></td>
+							<td class="tabla"><s:date name="fechaFin" format="dd/MM/yyyy"/></td>
+ 						</tr>
 					</s:iterator>
 				</table>
 				</div>

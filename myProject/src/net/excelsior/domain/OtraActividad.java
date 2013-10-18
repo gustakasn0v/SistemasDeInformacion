@@ -28,7 +28,7 @@ public class OtraActividad {
 	/**
 	 * @return the nombreUsuario
 	 */
-	public String getNombre_Usuario_Prof() {
+	public String getNombreUsuarioProf() {
 		return nombre_usuario_prof;
 	}
 
@@ -46,24 +46,24 @@ public class OtraActividad {
 	/**
 	 * @param nombreUsuario the nombreUsuario to set
 	 */
-	public void setNombre_Usuario_Prof(String nombre_usuario_prof) {
+	public void setNombreUsuarioProf(String nombre_usuario_prof) {
 		this.nombre_usuario_prof = nombre_usuario_prof;
 	}
 	
-	public Date getFecha_Inic() {
+	public Date getFechaInic() {
 		return fecha_inic;
 	}
 
-	public void setFecha_Inic(Date fecha_inic) {
+	public void setFechaInic(Date fecha_inic) {
 		this.fecha_inic = fecha_inic;
 	}
 	
 	
-	public Date getFecha_Fin() {
+	public Date getFechaFin() {
 		return fecha_fin;
 	}
 
-	public void setFecha_Fin(Date fecha_fin) {
+	public void setFechaFin(Date fecha_fin) {
 		this.fecha_fin = fecha_fin;
 	}
 }
